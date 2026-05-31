@@ -944,6 +944,21 @@ footer .meta {
     align-items: stretch;
 }
 
+.contact-grid-video {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.contact-grid-video iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    border-radius: 12px;
+    display: block;
+}
+
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -1202,6 +1217,7 @@ footer .meta {
     .feature-row,
     .feature-row.reverse,
     .contact-grid,
+    .contact-grid-video,
     .contact-form-wrap,
     .cta-strip .inner,
     footer .grid {
@@ -1239,10 +1255,16 @@ footer .meta {
     }
 }
 
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 600px) {
     .gallery {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .svc-grid,

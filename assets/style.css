@@ -1230,7 +1230,7 @@ footer .meta {
     }
 
     .gallery {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .testimonials {
@@ -1255,15 +1255,8 @@ footer .meta {
     }
 }
 
-@media (max-width: 768px) {
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 600px) {
     .gallery {
-        grid-template-columns: 1fr;
         gap: 12px;
     }
 

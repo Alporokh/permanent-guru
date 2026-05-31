@@ -35,8 +35,20 @@
                 </ul>
             </nav>
             <a href="tel:+48452370369" class="btn btn-primary btn-sm nav-cta">+48 452 370 369</a>
+            <button class="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="zabiegi.html" class="active">Zabiegi</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="tel:+48452370369" class="btn btn-primary">+48 452 370 369</a>
+    </div>
 
     <main>
 
@@ -56,7 +68,7 @@
                 <div class="svc-grid">
                     <article class="svc-card">
                         <span class="ribbon">Bestseller</span>
-                        <div class="img placeholder"><span>Brwi · metoda włoskowa</span></div>
+                        <div class="img placeholder"><img src="images/włoskowa-technika-brwi.png" alt="Makijaż permanentny brwi metoda włoskowa · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Makijaż permanentny brwi — metoda włoskowa</h3>
                             <p style="font-size:15px">Włos po włosie. Najbardziej naturalna technika — gęste, równo
@@ -65,7 +77,7 @@
                         </div>
                     </article>
                     <article class="svc-card">
-                        <div class="img placeholder"><span>Kreska na oku</span></div>
+                        <div class="img placeholder"><img src="images/brwi-oczy-permanent-poznan-rondo.png" alt="Kreska na oku makijaż permanentny · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Makijaż permanentny &mdash; kreska na oku</h3>
                             <p style="font-size:15px">Subtelne podkreślenie linii rzęs. Oko wygląda na większe,
@@ -74,7 +86,7 @@
                         </div>
                     </article>
                     <article class="svc-card">
-                        <div class="img placeholder"><span>Brwi + usta · pakiet</span></div>
+                        <div class="img placeholder"><img src="images/permanent-ust-poznan.png" alt="Makijaż permanentny ust Poznań · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Makijaż permanentny &mdash; brwi, usta</h3>
                             <p style="font-size:15px">Pełen kontur z subtelnym rozmyciem koloru. Wybierasz nasycenie —
@@ -86,85 +98,65 @@
             </div>
         </section>
 
-        <!-- ============ OTHER SERVICES ============ -->
-        <section class="section tight" style="background: var(--cream-deep);">
+        <!-- ============ CONTACT FORM ============ -->
+        <section class="section contact-form-section" style="background: var(--cream-deep);">
             <div class="container">
-                <div class="section-head" style="margin-bottom:56px">
-                    <span class="eyebrow">Manicure i pedicure</span>
-                    <h2>Inne <em>usługi</em></h2>
-                </div>
+                <div class="contact-form-wrap">
+                    <div>
+                        <span class="eyebrow">Napisz do nas</span>
+                        <h2 style="margin:18px 0 20px">Zarezerwuj <em class="serif-em">wizytę</em></h2>
+                        <p>Konsultacja jest zawsze bezpłatna. Odpiszemy w ciągu 24 godzin — podaj preferowane daty, a dopasujemy termin do Twojego kalendarza.</p>
+                        <p style="margin-top:20px;font-size:15px;color:var(--ink-mute);font-style:italic">Wolisz zadzwonić? Jesteśmy pod numerem <a href="tel:+48452370369">+48 452 370 369</a>, pon–pt 08–20, sob 08–18.</p>
+                    </div>
 
-                <div class="svc-grid wide">
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Uzupełnienie żelu</span></div>
-                        <div class="body">
-                            <h3>Uzupełnienie żelowych paznokci</h3>
-                            <p style="font-size:15px">Rozmiary S, M. Wzmocnienie struktury, naprawa łamań, świeży kolor.
-                            </p>
-                            <div class="price">120&nbsp;zł <small>≈ 1.5 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Manicure hybrydowy</span></div>
-                        <div class="body">
-                            <h3>Manicure hybrydowy wzmocniony żelem</h3>
-                            <p style="font-size:15px">Rozmiary S, M. Trwałość 3—4 tygodnie, ponad 80 kolorów do wyboru.
-                            </p>
-                            <div class="price">120&nbsp;zł <small>≈ 1.5 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Pedicure classic</span></div>
-                        <div class="body">
-                            <h3>Pedicure hybrydowy classic pododysk</h3>
-                            <p style="font-size:15px">Pełna pielęgnacja stóp, opracowanie skórek, lakier hybrydowy.</p>
-                            <div class="price">150&nbsp;zł <small>≈ 1.5 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Przedłużanie S, M</span></div>
-                        <div class="body">
-                            <h3>Przedłużenie paznokci S, M</h3>
-                            <p style="font-size:15px">Akrylożel, dowolna długość i kształt, zdobienia w cenie.</p>
-                            <div class="price">150&nbsp;zł <small>≈ 2 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Przedłużanie L, XL</span></div>
-                        <div class="body">
-                            <h3>Przedłużenie paznokci L, XL</h3>
-                            <p style="font-size:15px">Dłuższe formy, dodatkowe wzmocnienie struktury. Pełna swoboda
-                                stylizacji.</p>
-                            <div class="price">180&nbsp;zł <small>≈ 2.5 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Korekta PMU</span></div>
-                        <div class="body">
-                            <h3>Korekta makijażu permanentnego</h3>
-                            <p style="font-size:15px">Obowiązkowa korekta po 4—6 tygodniach od pierwszego zabiegu. W
-                                cenie zabiegu głównego.</p>
-                            <div class="price">w cenie <small>≈ 1.5 godz.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Konsultacja</span></div>
-                        <div class="body">
-                            <h3>Konsultacja przedzabiegowa</h3>
-                            <p style="font-size:15px">Indywidualne dobranie techniki, koloru i formy. Bez zobowiązań.
-                            </p>
-                            <div class="price">bezpłatnie <small>≈ 30 min.</small></div>
-                        </div>
-                    </article>
-                    <article class="svc-card">
-                        <div class="img placeholder"><span>Bon prezentowy</span></div>
-                        <div class="body">
-                            <h3>Bon prezentowy</h3>
-                            <p style="font-size:15px">Dowolna kwota, ważny 12 miesięcy. Eleganckie opakowanie w cenie.
-                            </p>
-                            <div class="price">od 100&nbsp;zł <small>na życzenie</small></div>
-                        </div>
-                    </article>
+                    <div class="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="name">Imię i nazwisko</label>
+                                    <input type="text" id="name" name="name" placeholder="np. Anna Kowalska" required autocomplete="name">
+                                </div>
+                                <div class="field">
+                                    <label for="phone">Telefon</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" autocomplete="tel">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="email">Adres email</label>
+                                <input type="email" id="email" name="email" placeholder="twoj@email.pl" required autocomplete="email">
+                            </div>
+
+                            <div class="field">
+                                <label for="service">Interesuje mnie</label>
+                                <select id="service" name="service">
+                                    <option value="" disabled selected>— wybierz usługę —</option>
+                                    <option value="brwi-wloskowka">Makijaż permanentny brwi (metoda włoskowa)</option>
+                                    <option value="kreska">Kreska na oku</option>
+                                    <option value="usta">Makijaż permanentny ust</option>
+                                    <option value="konsultacja">Bezpłatna konsultacja</option>
+                                    <option value="inne">Inne</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="message">Wiadomość</label>
+                                <textarea id="message" name="message" placeholder="Opisz swoje oczekiwania lub podaj preferowane terminy wizyty…"></textarea>
+                            </div>
+
+                            <input type="hidden" name="_subject" value="Nowe zapytanie — Permanent Guru">
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+
+                            <div class="submit-row">
+                                <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+                                <span class="note">Odpiszemy w ciągu 24 godzin.</span>
+                            </div>
+
+                            <div class="form-success" id="form-success" role="alert">
+                                Dziękujemy za wiadomość! Odpiszemy wkrótce.
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -286,6 +278,27 @@
         </div>
     </footer>
 
+    <script src="assets/main.js"></script>
+    <script>
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('form-success');
+        if (form) {
+            form.addEventListener('submit', async function (e) {
+                const action = form.getAttribute('action');
+                if (action.includes('YOUR_FORM_ID')) return;
+                e.preventDefault();
+                const data = new FormData(form);
+                try {
+                    const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+                    if (res.ok) {
+                        form.reset();
+                        successMsg.style.display = 'block';
+                        form.querySelectorAll('button[type=submit]').forEach(b => b.disabled = true);
+                    }
+                } catch (_) { form.submit(); }
+            });
+        }
+    </script>
 </body>
 
 </html>

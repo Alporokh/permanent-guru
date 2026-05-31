@@ -36,8 +36,20 @@
                 </ul>
             </nav>
             <a href="tel:+48452370369" class="btn btn-primary btn-sm nav-cta">+48 452 370 369</a>
+            <button class="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
+
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="zabiegi.html">Zabiegi</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="tel:+48452370369" class="btn btn-primary">+48 452 370 369</a>
+    </div>
 
     <main>
 
@@ -47,8 +59,8 @@
                 <div class="grid">
                     <div>
                         
-                        <h1>Paznokcie i <em>makijaż&nbsp;permanentny</em>, w Twoim tempie.</h1>
-                        <p class="lead">Ty wybierasz, mistrzyni dba o perfekcyjne wykonanie i komfort. Indywidualna
+                        <h1><em>Makijaż permanentny</em>, w Twoim tempie.</h1>
+                        <p class="lead">Ty wybierasz, mistrz dba o perfekcyjne wykonanie i komfort. Indywidualna
                         konsultacja, sterylne narzędzia, jednorazowe igły, delikatne techniki, szybka regeneracja.
                         </p>
                         <div class="hero-actions">
@@ -58,7 +70,7 @@
                     </div>
                     <div class="hero-image">
                         <div class="placeholder">
-                            <img src="images/permanent-kreska-hero.png" alt="Makijaż permanentny kreska · Iryna Malaniak">
+                            <img src="images/permanentguru-iryna-malanyak.png" alt="Makijaż permanentny kreska · Iryna Malaniak">
                         </div>
                     </div>
                 </div>
@@ -77,13 +89,13 @@
                 </div>
 
                 <div class="gallery">
-                    <div class="tile placeholder"><img src="images/brwi-permanent-poznan.png" alt="Permanent brwi w Poznaniu centrum"></div>
+                    <div class="tile placeholder"><img src="images/permanent-brwi-poznan-centrum.png" alt="Permanent brwi w Poznaniu centrum"></div>
                     <div class="tile placeholder"><img src="images/brwi-i-usta.png" alt="Permanent usta w Poznaniu centrum"></div>
-                    <div class="tile placeholder"><img src="images/brwi-poznan-permanent.png" alt="Permanent powieka w Poznaniu centrum"></div>
+                    <div class="tile placeholder"><img src="images/brwi-gradient-od-Iryny-Malaniak.png" alt="Permanent powieka w Poznaniu centrum"></div>
                     <div class="tile placeholder"><img src="images/zabieg-permanentu-centrum.jpg" alt="Piękne brwi w Poznaniu Polska"></div>
                     <div class="tile placeholder"><img src="images/permanent-brwi.png" alt="Makijaż permanentny brwi Poznań"></div>
                     <div class="tile placeholder"><img src="images/tattoo-brwi-polska.png" alt="Tatuaż brwi Polska"></div>
-                    <div class="tile placeholder"><img src="images/permanent-ust-poznan.png" alt="Permanentny makijaż ust Poznań"></div>
+                    <div class="tile placeholder"><img src="images/włoskowa-technika-brwi-poznań.png" alt="Permanentny makijaż brwi Poznań"></div>
                     <div class="tile placeholder"><img src="images/włoskowa-technika-brwi.png" alt="Włoskowa technika brwi Poznań"></div>
                 </div>
                 <div class="gallery-cta">
@@ -95,31 +107,65 @@
             </div>
         </section>
 
-        <!-- ============ MANICURE ============ -->
-        <section class="section" style="background: var(--cream-deep);">
+        <!-- ============ CONTACT FORM ============ -->
+        <section class="section contact-form-section" style="background: var(--cream-deep);">
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Manicure i pedicure</span>
-                    <h2>Wybierz <em>manicure</em></h2>
-                    <p>Jeśli szukasz czegoś oryginalnego, postaw na wysokiej jakości materiały i trwałość. I po prostu
-                        ciesz się swoją indywidualnością.</p>
-                </div>
+                <div class="contact-form-wrap">
+                    <div>
+                        <span class="eyebrow">Napisz do nas</span>
+                        <h2 style="margin:18px 0 20px">Zarezerwuj <em class="serif-em">wizytę</em></h2>
+                        <p>Konsultacja jest zawsze bezpłatna. Odpiszemy w ciągu 24 godzin — podaj preferowane daty, a dopasujemy termin do Twojego kalendarza.</p>
+                        <p style="margin-top:20px;font-size:15px;color:var(--ink-mute);font-style:italic">Wolisz zadzwonić? Jesteśmy pod numerem <a href="tel:+48452370369">+48 452 370 369</a>, pon–pt 08–20, sob 08–18.</p>
+                    </div>
 
-                <div class="gallery">
-                    <div class="tile placeholder"><img src="images/permanent brwi poznan (2).png" alt="Permanent brwi w Poznaniu centrum"></div>
-                    <div class="tile placeholder"><img src="images/piękne brwi poznan.png" alt="Permanent usta w Poznaniu centrum"></div>
-                    <div class="tile placeholder"><span>Pedicure · 01</span></div>
-                    <div class="tile placeholder"><span>Hybryda · 02</span></div>
-                    <div class="tile placeholder"><span>Manicure · 03</span></div>
-                    <div class="tile placeholder"><span>Ombre · 01</span></div>
-                    <div class="tile placeholder"><span>Pedicure · 02</span></div>
-                    <div class="tile placeholder"><span>French · 01</span></div>
-                </div>
-                <div class="gallery-cta">
-                    <a href="https://www.instagram.com/permanent_poznan_studia" class="btn btn-ghost" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
-                        Zobacz więcej na Instagramie
-                    </a>
+                    <div class="contact-form">
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="name">Imię i nazwisko</label>
+                                    <input type="text" id="name" name="name" placeholder="np. Anna Kowalska" required autocomplete="name">
+                                </div>
+                                <div class="field">
+                                    <label for="phone">Telefon</label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+48 000 000 000" autocomplete="tel">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="email">Adres email</label>
+                                <input type="email" id="email" name="email" placeholder="twoj@email.pl" required autocomplete="email">
+                            </div>
+
+                            <div class="field">
+                                <label for="service">Interesuje mnie</label>
+                                <select id="service" name="service">
+                                    <option value="" disabled selected>— wybierz usługę —</option>
+                                    <option value="brwi-wloskowka">Makijaż permanentny brwi (metoda włoskowa)</option>
+                                    <option value="kreska">Kreska na oku</option>
+                                    <option value="usta">Makijaż permanentny ust</option>
+                                    <option value="konsultacja">Bezpłatna konsultacja</option>
+                                    <option value="inne">Inne</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="message">Wiadomość</label>
+                                <textarea id="message" name="message" placeholder="Opisz swoje oczekiwania lub podaj preferowane terminy wizyty…"></textarea>
+                            </div>
+
+                            <input type="hidden" name="_subject" value="Nowe zapytanie — Permanent Guru">
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+
+                            <div class="submit-row">
+                                <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+                                <span class="note">Odpiszemy w ciągu 24 godzin.</span>
+                            </div>
+
+                            <div class="form-success" id="form-success" role="alert">
+                                Dziękujemy za wiadomość! Odpiszemy wkrótce.
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,7 +264,7 @@
                         Permanent Guru
                         <small>Iryna Malaniak · Poznań</small>
                     </div>
-                    <p>Studio makijażu permanentnego i pielęgnacji paznokci w sercu Poznania. Od 2016 roku.</p>
+                    <p>Studio makijażu permanentnego w sercu Poznania. Od 2016 roku.</p>
                     <a href="#" class="ig">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -264,6 +310,27 @@
         </div>
     </footer>
 
+    <script src="assets/main.js"></script>
+    <script>
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('form-success');
+        if (form) {
+            form.addEventListener('submit', async function (e) {
+                const action = form.getAttribute('action');
+                if (action.includes('YOUR_FORM_ID')) return;
+                e.preventDefault();
+                const data = new FormData(form);
+                try {
+                    const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+                    if (res.ok) {
+                        form.reset();
+                        successMsg.style.display = 'block';
+                        form.querySelectorAll('button[type=submit]').forEach(b => b.disabled = true);
+                    }
+                } catch (_) { form.submit(); }
+            });
+        }
+    </script>
 </body>
 
 </html>

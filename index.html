@@ -176,6 +176,7 @@
 
                             <div class="submit-row">
                                 <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
+                                <a href="https://booksy.com/pl-pl/dl/show-business/237799?utm_source=website&utm_content=contact_form" class="btn btn-ghost" target="_blank" rel="noopener">Rezerwacje Booksy</a>
                                 <span class="note">Odpiszemy w ciągu 24 godzin.</span>
                             </div>
 
@@ -353,18 +354,31 @@
         const successMsg = document.getElementById('form-success');
         if (form) {
             form.addEventListener('submit', async function (e) {
-                const action = form.getAttribute('action');
-                if (action.includes('YOUR_FORM_ID')) return;
                 e.preventDefault();
-                const data = new FormData(form);
+
+                const data = {
+                    name:    form.querySelector('[name="name"]').value,
+                    email:   form.querySelector('[name="email"]').value,
+                    phone:   form.querySelector('[name="phone"]').value,
+                    service: form.querySelector('[name="service"]').value,
+                    message: form.querySelector('[name="message"]').value,
+                };
+
+                const token  = '8301983058:AAEEOorh9o-tzLDDBybs9wX7AlC4quj9my4';
+                const chatId = '539368260';
+                const text   = `🌸 Nowe zapytanie — Permanent Guru!\n\n👤 ${data.name}\n📧 ${data.email}\n📱 ${data.phone || '—'}\n🎨 ${data.service || '—'}\n💬 ${data.message || '—'}`;
+
                 try {
-                    const res = await fetch(action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-                    if (res.ok) {
-                        form.reset();
-                        successMsg.style.display = 'block';
-                        form.querySelectorAll('button[type=submit]').forEach(b => b.disabled = true);
-                    }
-                } catch (_) { form.submit(); }
+                    await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ chat_id: chatId, text })
+                    });
+                } catch (_) {}
+
+                form.reset();
+                successMsg.style.display = 'block';
+                setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
             });
         }
     </script>

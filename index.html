@@ -166,6 +166,14 @@
                             <input type="hidden" name="_subject" value="Nowe zapytanie — Permanent Guru">
                             <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
 
+                            <div class="field field-rodo">
+                                <label class="checkbox-label" for="rodo">
+                                    <input type="checkbox" id="rodo" name="rodo">
+                                    <span>Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z <a href="polityka-prywatnosci.html" target="_blank">Polityką Prywatności</a> w celu odpowiedzi na moje zapytanie. <span style="color:var(--magenta)">*</span></span>
+                                </label>
+                                <span class="rodo-error-msg">Zgoda jest wymagana do wysłania formularza.</span>
+                            </div>
+
                             <div class="submit-row">
                                 <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
                                 <span class="note">Odpiszemy w ciągu 24 godzin.</span>
@@ -321,10 +329,23 @@
             </div>
             <div class="meta">
                 <span>© 2026 Permanent Guru · Iryna Malaniak</span>
+                <div class="footer-legal">
+                    <a href="polityka-prywatnosci.html">Polityka Prywatności</a>
+                    <a href="regulamin.html">Regulamin</a>
+                </div>
                 <span>Poznań, Polska</span>
             </div>
         </div>
     </footer>
+
+    <!-- ============ COOKIE BANNER ============ -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Informacja o plikach cookie">
+        <p>Ta strona używa plików cookie w celu zapewnienia prawidłowego funkcjonowania. Korzystając ze strony, akceptujesz naszą <a href="polityka-prywatnosci.html">Politykę Prywatności</a>.</p>
+        <div class="cookie-actions">
+            <button class="btn btn-primary btn-sm" id="cookie-accept">Akceptuję</button>
+            <button class="btn btn-ghost-light btn-sm" id="cookie-decline">Odrzuć</button>
+        </div>
+    </div>
 
     <script src="assets/main.js"></script>
     <script>

@@ -366,14 +366,13 @@
                 };
 
                 const token  = '8301983058:AAEEOorh9o-tzLDDBybs9wX7AlC4quj9my4';
-                const chatId = '539368260';
                 const text   = `🌸 Nowe zapytanie — Permanent Guru!\n\n👤 ${data.name}\n📧 ${data.email}\n📱 ${data.phone || '—'}\n🎨 ${data.service || '—'}\n💬 ${data.message || '—'}`;
 
                 try {
                     await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ chat_id: chatId, text })
+                        body: JSON.stringify({ chat_id: CHAT_ID, text })
                     });
                 } catch (_) {}
 

@@ -1283,6 +1283,24 @@ footer .meta {
 
     .section-head {
         margin-bottom: 48px;
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .section-head p {
+        text-align: left;
+    }
+
+    .gallery-cta {
+        text-align: left;
+    }
+
+    .page-hero {
+        text-align: left;
+    }
+
+    .page-hero p {
+        margin: 0;
     }
 
     .contact-form {

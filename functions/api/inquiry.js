@@ -33,7 +33,10 @@ export async function onRequestPost(context) {
       }
     );
 
-    if (!tg.ok) return json({ ok: false, error: "Telegram error" }, 502);
+    if (!tg.ok) {
+      const detail = await tg.text();
+      return json({ ok: false, error: "Telegram error", detail }, 502);
+    }
     return json({ ok: true });
   } catch (e) {
     return json({ ok: false, error: "Server error" }, 500);

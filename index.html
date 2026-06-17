@@ -366,11 +366,16 @@
     <script>
         const form = document.getElementById('contact-form');
         const successMsg = document.getElementById('form-success');
+        const errorMsg = document.createElement('div');
+        errorMsg.style.cssText = 'display:none;color:#c0392b;margin-top:12px;font-size:14px;';
+        if (successMsg) successMsg.after(errorMsg);
         if (form) {
             form.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
                 btn.disabled = true;
+                if (successMsg) successMsg.style.display = 'none';
+                errorMsg.style.display = 'none';
                 try {
                     const res = await fetch('/api/inquiry', {
                         method: 'POST',
@@ -389,8 +394,13 @@
                         form.reset();
                         successMsg.style.display = 'block';
                         setTimeout(() => { successMsg.style.display = 'none'; }, 5000);
+                    } else {
+                        errorMsg.textContent = 'Błąd: ' + (data.detail || data.error || 'nieznany błąd');
+                        errorMsg.style.display = 'block';
                     }
-                } catch (_) {
+                } catch (err) {
+                    errorMsg.textContent = 'Błąd połączenia: ' + err.message;
+                    errorMsg.style.display = 'block';
                 } finally {
                     btn.disabled = false;
                 }

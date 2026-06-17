@@ -1,0 +1,7 @@
+name = "permanent-guru"
+compatibility_date = "2025-01-01"
+main = "src/index.js"
+
+[assets]
+directory = "./"
+binding = "ASSETS"

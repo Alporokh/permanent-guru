@@ -482,6 +482,65 @@ a:hover {
     display: block;
 }
 
+/* -------- Nails section -------- */
+.nails-svcs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 64px;
+}
+
+.nails-svc {
+    background: white;
+    border-radius: 6px;
+    padding: 28px 22px;
+    border-top: 3px solid var(--magenta);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.nails-svc h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 10px;
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.3;
+}
+
+.nails-svc p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.insta-ph {
+    background: linear-gradient(145deg, var(--cream-card) 0%, var(--cream-deep) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--magenta-soft);
+}
+
+.insta-ph svg {
+    width: 28px;
+    height: 28px;
+    opacity: 0.35;
+}
+
+@media (max-width: 900px) {
+    .nails-svcs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .nails-svcs {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* -------- About block -------- */
 .about {
     display: grid;

@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://permanentguru.com/sitemap.xml
+# LLM-friendly summary of this site
+# https://llmstxt.org
+Llms: https://permanentguru.com/llms.txt

@@ -223,7 +223,7 @@ a:hover {
 
 .brand {
     font-family: var(--font-display);
-    font-style: italic;
+    font-style: normal;
     font-weight: 500;
     font-size: 30px;
     color: var(--magenta);
@@ -344,7 +344,7 @@ a:hover {
 }
 
 .hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--magenta);
     font-weight: 500;
 }
@@ -451,7 +451,7 @@ a:hover {
 }
 
 .section-head h2 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--magenta);
     font-weight: 500;
 }
@@ -500,7 +500,7 @@ a:hover {
 
 .nails-svc h3 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--ink);
     margin: 0 0 10px;
     text-transform: none;
@@ -721,7 +721,7 @@ footer h4 {
     font-family: var(--font-body);
     font-style: italic;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--magenta-soft);
@@ -945,7 +945,7 @@ footer .meta {
 }
 
 .page-hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--magenta);
     font-weight: 500;
 }
@@ -1237,7 +1237,7 @@ footer .meta {
 }
 
 .feature-row h2 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--magenta);
     font-weight: 500;
 }

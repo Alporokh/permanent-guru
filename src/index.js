@@ -2,6 +2,14 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (url.pathname === "/api/test") {
+      return json({
+        ok: true,
+        hasBotToken: !!env.BOT_TOKEN,
+        hasChatId: !!env.CHAT_ID,
+      });
+    }
+
     if (url.pathname === "/api/inquiry" && request.method === "POST") {
       try {
         const { name, phone, email, service, message, website } =
@@ -35,7 +43,10 @@ export default {
           }
         );
 
-        if (!tg.ok) return json({ ok: false, error: "Telegram error" }, 502);
+        if (!tg.ok) {
+          const detail = await tg.text();
+          return json({ ok: false, error: "Telegram error", detail }, 502);
+        }
         return json({ ok: true });
       } catch (e) {
         return json({ ok: false, error: "Server error" }, 500);

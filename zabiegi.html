@@ -47,7 +47,17 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="index.html#nails">Paznokcie</a></li>
-                    <li><a href="zabiegi.html" class="active">Permanent</a></li>
+                    <li class="has-dropdown">
+                        <a href="zabiegi.html" class="active">Zabiegi i Cennik</a>
+                        <ul class="dropdown">
+                            <li><a href="technika-wloskowa-brwi-poznan.html">Technika włoskowa brwi</a></li>
+                            <li><a href="zabiegi.html#usta">Permanentny makijaż ust</a></li>
+                            <li><a href="zabiegi.html#kreska">Makijaż permanentny — kreska</a></li>
+                            <li><a href="zabiegi.html#kreska-cieniowanie">Kreska z cieniowaniem</a></li>
+                            <li><a href="zabiegi.html#brwi">Makijaż permanentny brwi</a></li>
+                            <li><a href="zabiegi.html" class="dropdown-all">Zobacz cały cennik →</a></li>
+                        </ul>
+                    </li>
                     <li><a href="kontakt.html">Kontakt</a></li>
                 </ul>
             </nav>
@@ -62,7 +72,16 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#nails">Paznokcie</a></li>
-            <li><a href="zabiegi.html" class="active">Permanent</a></li>
+            <li>
+                <a href="zabiegi.html" class="active">Zabiegi i Cennik</a>
+                <ul class="mobile-submenu">
+                    <li><a href="technika-wloskowa-brwi-poznan.html">Technika włoskowa brwi</a></li>
+                    <li><a href="zabiegi.html#usta">Permanentny makijaż ust</a></li>
+                    <li><a href="zabiegi.html#kreska">Makijaż permanentny — kreska</a></li>
+                    <li><a href="zabiegi.html#kreska-cieniowanie">Kreska z cieniowaniem</a></li>
+                    <li><a href="zabiegi.html#brwi">Makijaż permanentny brwi</a></li>
+                </ul>
+            </li>
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
         <a href="tel:+48452370369" class="btn btn-primary">+48 452 370 369</a>
@@ -84,16 +103,16 @@
         <section class="section tight">
             <div class="container">
                 <div class="svc-grid">
-                    <article class="svc-card">
+                    <article class="svc-card" id="wloskowa">
                         <span class="ribbon">Bestseller</span>
                         <div class="img placeholder"><img src="images/włoskowa-brwi-permanent.png" alt="Makijaż permanentny brwi metoda włoskowa · Iryna Malaniak"></div>
                         <div class="body">
-                            <h3>Permanentny makijaż brwi — metoda włoskowa</h3>
+                            <h3><a href="technika-wloskowa-brwi-poznan.html">Permanentny makijaż brwi — metoda włoskowa</a></h3>
                             <p style="font-size:15px">Włos po włosie. Najbardziej naturalna technika — gęste, równo ułożone brwi, które wyglądają jak własne.</p>
                             <div class="price">1200&nbsp;zł <small>≈ 2.5 godz.</small></div>
                         </div>
                     </article>
-                    <article class="svc-card">
+                    <article class="svc-card" id="usta">
                         <div class="img placeholder"><img src="images/permanent-ust-poznan.png" alt="Makijaż permanentny ust Poznań · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Permanentny 3D makijaż ust</h3>
@@ -101,7 +120,7 @@
                             <div class="price">800&nbsp;zł <small>≈ 2.5 godz.</small></div>
                         </div>
                     </article>
-                    <article class="svc-card">
+                    <article class="svc-card" id="kreska">
                         <div class="img placeholder"><img src="images/brwi-oczy-permanent-poznan-rondo.png" alt="Kreska na oku makijaż permanentny · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Makijaż permanentny — kreska</h3>
@@ -109,7 +128,7 @@
                             <div class="price">600&nbsp;zł <small>≈ 2 godz.</small></div>
                         </div>
                     </article>
-                    <article class="svc-card">
+                    <article class="svc-card" id="kreska-cieniowanie">
                         <div class="img placeholder"><img src="images/korekta-kreska-poznan.jpg" alt="Kreska z cieniowaniem · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Kreska z cieniowaniem</h3>
@@ -117,7 +136,7 @@
                             <div class="price">600&nbsp;zł <small>≈ 2.5 godz.</small></div>
                         </div>
                     </article>
-                    <article class="svc-card">
+                    <article class="svc-card" id="brwi">
                         <div class="img placeholder"><img src="images/permanent-brwi-centrum-rondo.png" alt="Makijaż permanentny brwi · Iryna Malaniak"></div>
                         <div class="body">
                             <h3>Makijaż permanentny brwi</h3>
@@ -327,7 +346,7 @@
                     <h4>Nawigacja</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="zabiegi.html">Permanent</a></li>
+                        <li><a href="zabiegi.html">Zabiegi i Cennik</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>

@@ -280,6 +280,73 @@ a:hover {
     background: var(--magenta);
 }
 
+/* -------- Nav dropdown -------- */
+.nav-links li.has-dropdown {
+    position: relative;
+}
+
+.nav-links li.has-dropdown > a {
+    padding-right: 16px;
+}
+
+.nav-links li.has-dropdown > a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    margin-top: -5px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+}
+
+.nav-links .dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    min-width: 260px;
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.nav-links li.has-dropdown:hover .dropdown,
+.nav-links li.has-dropdown:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-links .dropdown a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 14px;
+    letter-spacing: normal;
+    white-space: nowrap;
+}
+
+.nav-links .dropdown a:hover {
+    color: var(--magenta);
+    background: var(--cream-deep);
+}
+
+.nav-links .dropdown a.dropdown-all {
+    margin-top: 6px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-weight: 600;
+    color: var(--magenta);
+}
+
 /* -------- Buttons -------- */
 .btn {
     display: inline-flex;
@@ -809,6 +876,7 @@ footer .meta {
     display: flex;
     flex-direction: column;
     position: relative;
+    scroll-margin-top: 110px;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -845,6 +913,14 @@ footer .meta {
     font-size: 22px;
     line-height: 1.25;
     margin: 0;
+}
+
+.svc-card h3 a {
+    color: inherit;
+}
+
+.svc-card h3 a:hover {
+    color: var(--magenta);
 }
 
 .svc-card .price {
@@ -1242,7 +1318,7 @@ footer .meta {
     font-weight: 500;
 }
 
-.feature-row .features-list {
+.features-list {
     list-style: none;
     padding: 0;
     margin: 32px 0 0;
@@ -1250,7 +1326,7 @@ footer .meta {
     gap: 14px;
 }
 
-.feature-row .features-list li {
+.features-list li {
     position: relative;
     padding-left: 32px;
     font-size: 17px;
@@ -1258,7 +1334,7 @@ footer .meta {
     line-height: 1.5;
 }
 
-.feature-row .features-list li::before {
+.features-list li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -1453,6 +1529,23 @@ footer .meta {
 
 .mobile-nav ul li a:hover,
 .mobile-nav ul li a.active {
+    color: var(--magenta);
+}
+
+.mobile-nav .mobile-submenu {
+    margin: 0 0 8px;
+}
+
+.mobile-nav .mobile-submenu li a {
+    font-family: var(--font-body);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    padding: 10px 0 10px 20px;
+    border-bottom: none;
+}
+
+.mobile-nav .mobile-submenu li a:hover {
     color: var(--magenta);
 }
 

@@ -1,5 +1,3 @@
-const CHAT_ID = '-1003245335502';
-
 const burger = document.querySelector('.burger');
 const mobileNav = document.getElementById('mobile-nav');
 

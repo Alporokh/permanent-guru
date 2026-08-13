@@ -952,6 +952,14 @@ footer .meta {
     color: var(--ink-mute);
 }
 
+.price-was {
+    text-decoration: line-through;
+    color: var(--ink-mute);
+    font-size: 0.65em;
+    font-style: normal;
+    margin-right: 6px;
+}
+
 .svc-card .ribbon {
     position: absolute;
     top: 14px;

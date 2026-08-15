@@ -285,11 +285,36 @@ a:hover {
     position: relative;
 }
 
-.nav-links li.has-dropdown > a {
-    padding-right: 16px;
+.nav-links li.has-dropdown > button {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0 16px 4px 0;
+    cursor: pointer;
+    position: relative;
 }
 
-.nav-links li.has-dropdown > a::before {
+.nav-links li.has-dropdown > button:hover,
+.nav-links li.has-dropdown > button.active {
+    color: var(--magenta);
+}
+
+.nav-links li.has-dropdown > button.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 16px;
+    bottom: -2px;
+    height: 2px;
+    background: var(--magenta);
+}
+
+.nav-links li.has-dropdown > button::before {
     content: "";
     position: absolute;
     right: 0;
@@ -1543,21 +1568,30 @@ footer .meta {
     flex-direction: column;
 }
 
-.mobile-nav ul li a {
+.mobile-nav ul li a,
+.mobile-nav ul li button {
     display: block;
+    width: 100%;
     font-family: var(--font-display);
     font-size: 36px;
     font-weight: 500;
     color: var(--ink);
     text-decoration: none;
-    padding: 16px 0;
+    background: none;
+    border: none;
     border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
     transition: color 0.2s;
     line-height: 1.2;
 }
 
 .mobile-nav ul li a:hover,
-.mobile-nav ul li a.active {
+.mobile-nav ul li a.active,
+.mobile-nav ul li button:hover,
+.mobile-nav ul li button.active {
     color: var(--magenta);
 }
 

@@ -206,15 +206,15 @@
                 <ul class="nav-links">
                     <li><a href="/">O nas</a></li>
                     <li><a href="/#nails">Paznokcie</a></li>
+                    <li><a href="cennik.html" class="active">Cennik</a></li>
                     <li class="has-dropdown">
-                        <a href="zabiegi.html" class="active">Zabiegi i Cennik</a>
+                        <button type="button" aria-haspopup="true">Zabiegi</button>
                         <ul class="dropdown">
                             <li><a href="technika-wloskowa-brwi-poznan.html">Technika włoskowa brwi</a></li>
                             <li><a href="permanentny-makijaz-ust-poznan.html">Permanentny makijaż ust</a></li>
                             <li><a href="permanentny-makijaz-oczu-poznan.html">Makijaż permanentny oczu — kreska</a></li>
                             <li><a href="permanentny-makijaz-brwi-poznan.html">Makijaż permanentny brwi</a></li>
                             <li><a href="usuwanie-makijazu-permanentnego-poznan.html">Usuwanie makijażu permanentnego</a></li>
-                            <li><a href="cennik.html" class="dropdown-all">Zobacz cały cennik →</a></li>
                         </ul>
                     </li>
                     <li><a href="kontakt.html">Kontakt</a></li>
@@ -231,15 +231,15 @@
         <ul>
             <li><a href="/">O nas</a></li>
             <li><a href="/#nails">Paznokcie</a></li>
+            <li><a href="cennik.html" class="active">Cennik</a></li>
             <li>
-                <a href="zabiegi.html" class="active">Zabiegi i Cennik</a>
+                <button type="button" aria-haspopup="true">Zabiegi</button>
                 <ul class="mobile-submenu">
                     <li><a href="technika-wloskowa-brwi-poznan.html">Technika włoskowa brwi</a></li>
                     <li><a href="permanentny-makijaz-ust-poznan.html">Permanentny makijaż ust</a></li>
                     <li><a href="permanentny-makijaz-oczu-poznan.html">Makijaż permanentny oczu — kreska</a></li>
                     <li><a href="permanentny-makijaz-brwi-poznan.html">Makijaż permanentny brwi</a></li>
                     <li><a href="usuwanie-makijazu-permanentnego-poznan.html">Usuwanie makijażu permanentnego</a></li>
-                    <li><a href="cennik.html">Cennik</a></li>
                 </ul>
             </li>
             <li><a href="kontakt.html">Kontakt</a></li>
@@ -260,88 +260,91 @@
             </div>
         </section>
 
-        <!-- ============ BRWI ============ -->
+        <!-- ============ CENNIK — WSZYSTKIE ZABIEGI ============ -->
         <section class="section tight">
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Brwi</span>
-                    <h2>Ile kosztuje makijaż permanentny <em>brwi</em> w Poznaniu?</h2>
+                <div class="svc-grid">
+                    <article class="svc-card" id="wloskowa">
+                        <span class="ribbon">Bestseller</span>
+                        <div class="img placeholder"><img src="images/włoskowa-brwi-permanent.png" alt="Makijaż permanentny brwi metoda włoskowa · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="technika-wloskowa-brwi-poznan.html">Permanentny makijaż brwi — metoda włoskowa</a></h3>
+                            <p style="font-size:15px">Włos po włosie. Najbardziej naturalna technika — gęste, równo ułożone brwi, które wyglądają jak własne.</p>
+                            <div class="price"><span><span class="price-was">1200&nbsp;zł</span>600&nbsp;zł</span> <small>≈ 2.5 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card" id="usta">
+                        <div class="img placeholder"><img src="images/permanent-ust-poznan.png" alt="Makijaż permanentny ust Poznań · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="permanentny-makijaz-ust-poznan.html">Permanentny 3D makijaż ust</a></h3>
+                            <p style="font-size:15px">Pełen kontur z subtelnym rozmyciem koloru. Wybierasz nasycenie — od cielistego do nasyconego.</p>
+                            <div class="price"><span><span class="price-was">800&nbsp;zł</span>400&nbsp;zł</span> <small>≈ 2.5 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card" id="kreska">
+                        <div class="img placeholder"><img src="images/brwi-oczy-permanent-poznan-rondo.png" alt="Kreska na oku makijaż permanentny · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="permanentny-makijaz-oczu-poznan.html">Makijaż permanentny — kreska</a></h3>
+                            <p style="font-size:15px">Subtelne podkreślenie linii rzęs. Oko wygląda na większe, wypoczęte — bez efektu kreślenia eyelinerem.</p>
+                            <div class="price"><span><span class="price-was">600&nbsp;zł</span>300&nbsp;zł</span> <small>≈ 2 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card" id="kreska-cieniowanie">
+                        <div class="img placeholder"><img src="images/korekta-kreska-poznan.jpg" alt="Kreska z cieniowaniem · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="permanentny-makijaz-oczu-poznan.html">Kreska z cieniowaniem</a></h3>
+                            <p style="font-size:15px">Kreska wzmocniona delikatnym cieniowaniem — efekt głębi i intensywności spojrzenia.</p>
+                            <div class="price"><span><span class="price-was">600&nbsp;zł</span>300&nbsp;zł</span> <small>≈ 2.5 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card" id="brwi">
+                        <div class="img placeholder"><img src="images/permanent-brwi-centrum-rondo.png" alt="Makijaż permanentny brwi · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="permanentny-makijaz-brwi-poznan.html">Makijaż permanentny brwi</a></h3>
+                            <p style="font-size:15px">Klasyczne wypełnienie brwi pigmentem — równy, wyraźny kształt podkreślający rysy twarzy.</p>
+                            <div class="price"><span><span class="price-was">800&nbsp;zł</span>400&nbsp;zł</span> <small>≈ 2 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card">
+                        <div class="img placeholder"><img src="images/permanent-ust-polska.png" alt="Korekta makijaż permanentny · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3>Korekta przez 1–2 miesiące</h3>
+                            <p style="font-size:15px">Obowiązkowa korekta po 4–8 tygodniach od zabiegu — uzupełnienie pigmentu i doprecyzowanie kształtu.</p>
+                            <div class="price">-50&nbsp;% <small>≈ 2 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card">
+                        <div class="img placeholder"><img src="images/brwi-oczy-permanent-poznan-rondo.png" alt="Korekta kreski z cieniowaniem · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3>Korekta kreski z cieniowaniem</h3>
+                            <p style="font-size:15px">Korekta kreski wzbogaconej o cieniowanie — odświeżenie koloru i precyzji linii.</p>
+                            <div class="price"><span><span class="price-was">400&nbsp;zł</span>200&nbsp;zł</span> <small>≈ 2.5 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card">
+                        <div class="img placeholder"><img src="images/zabieg-permanentu-korekta-poznan.jpg" alt="Włoskowa technika korekta · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3>Włoskowa technika — korekta</h3>
+                            <p style="font-size:15px">Korekta brwi wykonanych metodą włoskową — uzupełnienie i odświeżenie efektu naturalnych włosków.</p>
+                            <div class="price"><span><span class="price-was">600&nbsp;zł</span>300&nbsp;zł</span> <small>≈ 2.5 godz.</small></div>
+                        </div>
+                    </article>
+                    <article class="svc-card" id="usuwanie">
+                        <div class="img placeholder"><img src="images/korekta-brwi-rondo-kaponjera.jpg" alt="Usuwanie makijażu permanentnego removerem · Iryna Malaniak"></div>
+                        <div class="body">
+                            <h3><a href="usuwanie-makijazu-permanentnego-poznan.html">Usuwanie makijażu permanentnego removerem</a></h3>
+                            <p style="font-size:15px">Stopniowe rozjaśnianie starego pigmentu — przed korektą albo przed nowym makijażem permanentnym.</p>
+                            <div class="price">200&nbsp;zł <small>≈ 30 min.</small></div>
+                        </div>
+                    </article>
                 </div>
-                <ul style="list-style:none;padding:0;max-width:640px;margin:0 auto;display:grid;gap:16px">
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px">
-                        <span><a href="technika-wloskowa-brwi-poznan.html">Metoda włoskowa</a></span>
-                        <span style="white-space:nowrap"><span class="price-was">1200&nbsp;zł</span><strong>600&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2,5 godz.</small></span>
-                    </li>
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px">
-                        <span><a href="permanentny-makijaz-brwi-poznan.html">Pudrowe / klasyczne / łączone</a></span>
-                        <span style="white-space:nowrap"><span class="price-was">800&nbsp;zł</span><strong>400&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2 godz.</small></span>
-                    </li>
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
-                        <span>Korekta metody włoskowej</span>
-                        <span style="white-space:nowrap"><span class="price-was">600&nbsp;zł</span><strong>300&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2,5 godz.</small></span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ============ USTA ============ -->
-        <section class="section tight" style="background: var(--cream-deep);">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Usta</span>
-                    <h2>Ile kosztuje makijaż permanentny <em>ust</em> w Poznaniu?</h2>
-                </div>
-                <ul style="list-style:none;padding:0;max-width:640px;margin:0 auto;display:grid;gap:16px">
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
-                        <span><a href="permanentny-makijaz-ust-poznan.html">Permanentny makijaż ust</a></span>
-                        <span style="white-space:nowrap"><span class="price-was">800&nbsp;zł</span><strong>400&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2,5 godz.</small></span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ============ OCZU / KRESKA ============ -->
-        <section class="section tight">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Oczy</span>
-                    <h2>Ile kosztuje makijaż permanentny <em>oczu</em> w Poznaniu?</h2>
-                </div>
-                <ul style="list-style:none;padding:0;max-width:640px;margin:0 auto;display:grid;gap:16px">
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px">
-                        <span><a href="permanentny-makijaz-oczu-poznan.html">Kreska</a></span>
-                        <span style="white-space:nowrap"><span class="price-was">600&nbsp;zł</span><strong>300&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2 godz.</small></span>
-                    </li>
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px">
-                        <span><a href="permanentny-makijaz-oczu-poznan.html">Kreska z cieniowaniem</a></span>
-                        <span style="white-space:nowrap"><span class="price-was">600&nbsp;zł</span><strong>300&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2,5 godz.</small></span>
-                    </li>
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
-                        <span>Korekta kreski z cieniowaniem</span>
-                        <span style="white-space:nowrap"><span class="price-was">400&nbsp;zł</span><strong>200&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 2,5 godz.</small></span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ============ USUWANIE ============ -->
-        <section class="section tight" style="background: var(--cream-deep);">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Usuwanie</span>
-                    <h2>Ile kosztuje <em>usuwanie</em> makijażu permanentnego?</h2>
-                </div>
-                <ul style="list-style:none;padding:0;max-width:640px;margin:0 auto;display:grid;gap:16px">
-                    <li style="display:flex;justify-content:space-between;align-items:baseline;gap:16px">
-                        <span><a href="usuwanie-makijazu-permanentnego-poznan.html">Usuwanie removerem</a></span>
-                        <span style="white-space:nowrap"><strong>200&nbsp;zł</strong> <small style="color:var(--ink-mute)">≈ 30 min.</small></span>
-                    </li>
-                </ul>
+                <p class="narrow-center" style="margin-top:32px;font-size:15px;color:var(--ink-mute);font-style:italic">
+                    Dodatkowo płatne znieczulenie miejscowe – 100 zł do każdego zabiegu.</p>
             </div>
         </section>
 
         <!-- ============ CO JESZCZE ============ -->
-        <section class="section tight">
+        <section class="section tight" style="background: var(--cream-deep);">
             <div class="container">
                 <div class="section-head">
                     <span class="eyebrow">Dobrze wiedzieć</span>
@@ -349,7 +352,6 @@
                 </div>
                 <ul class="features-list" style="max-width:640px;margin:0 auto">
                     <li>Konsultacja jest zawsze bezpłatna — niezależnie od decyzji po jej zakończeniu</li>
-                    <li>Znieczulenie miejscowe to dodatkowo płatna opcja — 100 zł do każdego zabiegu</li>
                     <li>Korekta po 4–8 tygodniach to zwykle 50% ceny pierwszego zabiegu</li>
                     <li>Cenę i czas trwania ustalamy przed zabiegiem — bez dopłat w trakcie</li>
                 </ul>
@@ -473,10 +475,10 @@
             <div class="container">
                 <div class="inner">
                     <div>
-                        <span class="eyebrow">Zobacz też</span>
-                        <h2>Pełny opis <em class="serif-em">zabiegów</em>.</h2>
+                        <span class="eyebrow">Umów wizytę</span>
+                        <h2>Bezpłatna <em class="serif-em">konsultacja</em> przed zabiegiem.</h2>
                     </div>
-                    <a href="zabiegi.html" class="btn">Zobacz zabiegi</a>
+                    <a href="kontakt.html" class="btn">Zarezerwuj termin</a>
                 </div>
             </div>
         </section>
@@ -517,7 +519,7 @@
                     <h3>Nawigacja</h3>
                     <ul>
                         <li><a href="/">O nas</a></li>
-                        <li><a href="zabiegi.html">Zabiegi i Cennik</a></li>
+                        <li><a href="cennik.html">Cennik</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>

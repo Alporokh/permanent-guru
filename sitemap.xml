@@ -2,62 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://permanentguru.com/</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://permanentguru.com/cennik.html</loc>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/zabiegi.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/technika-wloskowa-brwi-poznan.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/permanentny-makijaz-brwi-poznan.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/permanentny-makijaz-ust-poznan.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/permanentny-makijaz-oczu-poznan.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/usuwanie-makijazu-permanentnego-poznan.html</loc>
-    <lastmod>2026-08-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/kontakt.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/polityka-prywatnosci.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
   <url>
     <loc>https://permanentguru.com/regulamin.html</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-08-15</lastmod>
   </url>
 </urlset>

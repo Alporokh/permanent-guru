@@ -1,0 +1,30 @@
+{
+  "name": "Permanent Guru — Iryna Malaniak",
+  "short_name": "Permanent Guru",
+  "description": "Studio makijażu permanentnego i stylizacji paznokci w Poznaniu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF4EE",
+  "theme_color": "#971756",
+  "lang": "pl",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

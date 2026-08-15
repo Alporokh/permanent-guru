@@ -582,6 +582,14 @@ a:hover {
     line-height: 1.3;
 }
 
+.nails-svc h3 a {
+    color: inherit;
+}
+
+.nails-svc h3 a:hover {
+    color: var(--magenta);
+}
+
 .nails-svc p {
     font-size: 14px;
     color: var(--ink-soft);
@@ -791,7 +799,7 @@ footer .grid {
     margin-bottom: 56px;
 }
 
-footer h4 {
+footer h3 {
     font-family: var(--font-body);
     font-style: italic;
     font-size: 13px;

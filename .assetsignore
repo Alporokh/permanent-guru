@@ -1,0 +1,7 @@
+.git
+.claude
+.vscode
+src
+wrangler.toml
+.gitignore
+README.md

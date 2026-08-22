@@ -581,6 +581,52 @@ a:hover {
     display: block;
 }
 
+/* -------- Certificates -------- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.cert-card {
+    display: block;
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    padding: 12px;
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cert-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-3px);
+}
+
+.cert-card .thumb {
+    aspect-ratio: 3 / 4;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cert-card .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.cert-card .caption {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--ink-mute);
+    text-align: center;
+    line-height: 1.4;
+}
+
 /* -------- Nails section -------- */
 .nails-svcs {
     display: grid;
@@ -1425,6 +1471,10 @@ footer .meta {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .nav-links {
         display: none;
     }
@@ -1446,6 +1496,11 @@ footer .meta {
     .svc-grid,
     .svc-grid.wide {
         grid-template-columns: 1fr;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .container {

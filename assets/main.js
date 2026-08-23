@@ -1,3 +1,35 @@
+// Defer Google tag + Microsoft Clarity until idle/interaction — both are heavy
+// enough on the main thread to blow up Total Blocking Time if loaded eagerly.
+function loadAnalytics() {
+    if (window.__analyticsLoaded) return;
+    window.__analyticsLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-0RBEJ7QR9N');
+
+    const gtagScript = document.createElement('script');
+    gtagScript.async = true;
+    gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-0RBEJ7QR9N';
+    document.head.appendChild(gtagScript);
+
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', 'x7eqf9ruad');
+}
+
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(loadAnalytics, { timeout: 4000 });
+} else {
+    setTimeout(loadAnalytics, 3000);
+}
+['scroll', 'keydown', 'click', 'touchstart'].forEach(evt =>
+    window.addEventListener(evt, loadAnalytics, { once: true, passive: true })
+);
+
 const burger = document.querySelector('.burger');
 const mobileNav = document.getElementById('mobile-nav');
 

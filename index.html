@@ -2,14 +2,6 @@
 <html lang="pl">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0RBEJ7QR9N"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0RBEJ7QR9N');
-    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Permanent Guru Studio — Makijaż Permanentny Poznań</title>
@@ -122,6 +114,7 @@
     <meta name="twitter:image" content="https://permanentguru.com/images/permanent-brwi.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="images/permanentguru-iryna-malanyak.webp" fetchpriority="high" type="image/webp">
     <link
         href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,400;16..144,500;16..144,600;16..144,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
         rel="stylesheet">
@@ -131,13 +124,6 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#971756">
     <link rel="stylesheet" href="assets/style.css">
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "x7eqf9ruad");
-    </script>
 </head>
 
 <body>
@@ -219,7 +205,10 @@
                     </div>
                     <div class="hero-image">
                         <div class="placeholder">
-                            <img src="images/permanentguru-iryna-malanyak.png" alt="Makijaż permanentny kreska · Iryna Malaniak" width="1123" height="1544">
+                            <picture>
+                                <source srcset="images/permanentguru-iryna-malanyak.webp" type="image/webp">
+                                <img src="images/permanentguru-iryna-malanyak.png" alt="Makijaż permanentny kreska · Iryna Malaniak" width="1123" height="1544" fetchpriority="high">
+                            </picture>
                         </div>
                     </div>
                 </div>

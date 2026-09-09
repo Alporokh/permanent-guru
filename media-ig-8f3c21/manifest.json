@@ -1,0 +1,78 @@
+{
+  "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc w tablicy = kolejnosc slajdow.",
+  "base": "https://permanentguru.com/media-ig-8f3c21/",
+  "updated": "2026-09-09",
+  "posts": {
+    "01": [
+      "https://permanentguru.com/media-ig-8f3c21/01/01-1_cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/01/01-2_efekt.jpg"
+    ],
+    "02": [
+      "https://permanentguru.com/media-ig-8f3c21/02/02-1_przed.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/02/02-2_po.jpg"
+    ],
+    "03": [
+      "https://permanentguru.com/media-ig-8f3c21/03/03-1_makro-wloskowa.jpg"
+    ],
+    "04": [
+      "https://permanentguru.com/media-ig-8f3c21/04/04-1_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-2_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-3_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-4_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-5_efekt.jpg"
+    ],
+    "05": [
+      "https://permanentguru.com/media-ig-8f3c21/05/05-1_reel.mp4"
+    ],
+    "06": [
+      "https://permanentguru.com/media-ig-8f3c21/06/06-1_w-dniu-zabiegu.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/06/06-2_po-zagojeniu.jpg"
+    ],
+    "07": [
+      "https://permanentguru.com/media-ig-8f3c21/07/07-1_portret-iryny.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/07/07-2_przy-pracy.jpg"
+    ],
+    "08": [
+      "https://permanentguru.com/media-ig-8f3c21/08/08-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-2_pytanie-ciaza.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-3_pytanie-hashimoto.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-4_pytanie-opryszczka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-5_pytanie-minusy.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-6_cta.jpg"
+    ],
+    "09": [
+      "https://permanentguru.com/media-ig-8f3c21/09/09-1_mapowanie-siatka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-2_mapowanie-pomiar.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-3_linijka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-4_przy-pracy.jpg"
+    ],
+    "10": [
+      "https://permanentguru.com/media-ig-8f3c21/10/10-1_cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-2_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-3_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-4_efekt.jpg"
+    ],
+    "11": [
+      "https://permanentguru.com/media-ig-8f3c21/11/11-1_usta-makro.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-2_usta-profil.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-3_usta-portret.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-4_usta-naturalne.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-5_usta-makro-2.jpg"
+    ],
+    "12": [
+      "https://permanentguru.com/media-ig-8f3c21/12/12-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-2_co-robic.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-3_czego-nie-robic.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-4_studio.jpg"
+    ],
+    "13": [
+      "https://permanentguru.com/media-ig-8f3c21/13/13-1_przed-po.jpg"
+    ],
+    "14": [
+      "https://permanentguru.com/media-ig-8f3c21/14/14-1_kreska-makro.jpg"
+    ],
+    "15": [
+      "https://permanentguru.com/media-ig-8f3c21/15/15-1_laminacja.jpg"
+    ]
+  }
+}

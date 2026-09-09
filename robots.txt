@@ -1,6 +1,8 @@
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
+# Media for automated social posting - not for search indexing
+Disallow: /media-ig-8f3c21/
 
 Sitemap: https://permanentguru.com/sitemap.xml
 # LLM-friendly summary of this site

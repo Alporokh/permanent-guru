@@ -5,3 +5,4 @@ src
 wrangler.toml
 .gitignore
 README.md
+.wrangler

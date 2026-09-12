@@ -1949,3 +1949,51 @@ footer .meta {
         justify-content: flex-end;
     }
 }
+/* ============ BREADCRUMBS ============ */
+.breadcrumb {
+    margin: 0 0 20px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+.breadcrumb ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-mute);
+}
+
+.breadcrumb li + li::before {
+    content: "/";
+    color: var(--line);
+}
+
+.breadcrumb a {
+    color: var(--ink-mute);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.breadcrumb a:hover {
+    color: var(--magenta);
+    border-bottom-color: var(--magenta);
+}
+
+.breadcrumb [aria-current="page"] {
+    color: var(--ink-soft);
+}
+
+.legal-page .breadcrumb ol {
+    justify-content: flex-start;
+}

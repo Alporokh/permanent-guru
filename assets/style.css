@@ -1997,3 +1997,7 @@ footer .meta {
 .legal-page .breadcrumb ol {
     justify-content: flex-start;
 }
+
+footer .ig + .ig {
+    margin-left: 8px;
+}

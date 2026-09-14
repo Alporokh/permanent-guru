@@ -11,15 +11,34 @@ export default {
     }
 
     if (url.pathname === "/api/inquiry" && request.method === "POST") {
+      // The site's JavaScript posts JSON. Without JavaScript the browser posts
+      // the form itself, so that path gets an HTML page back instead of JSON.
+      const isJson = (request.headers.get("Content-Type") || "").includes(
+        "application/json"
+      );
+
       try {
-        const { name, phone, email, service, message, website } =
-          await request.json();
+        const data = isJson
+          ? await request.json()
+          : Object.fromEntries(await request.formData());
+        const { name, phone, email, service, message, website, rodo } = data;
 
         // Honeypot: bots fill hidden "website" field → silently drop
-        if (website) return json({ ok: true });
+        if (website) return isJson ? json({ ok: true }) : formPage(true);
 
         if (!name || (!phone && !email && !message)) {
-          return json({ ok: false, error: "Brak danych" }, 400);
+          return isJson
+            ? json({ ok: false, error: "Brak danych" }, 400)
+            : formPage(false, "Podaj imię oraz telefon, e-mail lub wiadomość.", 400);
+        }
+
+        // The JavaScript form checks consent before sending; a plain post must carry it
+        if (!isJson && !rodo) {
+          return formPage(
+            false,
+            "Zaznacz zgodę na przetwarzanie danych, aby wysłać formularz.",
+            400
+          );
         }
 
         const text =
@@ -45,11 +64,15 @@ export default {
 
         if (!tg.ok) {
           const detail = await tg.text();
-          return json({ ok: false, error: "Telegram error", detail }, 502);
+          return isJson
+            ? json({ ok: false, error: "Telegram error", detail }, 502)
+            : formPage(false, SEND_FAILED, 502);
         }
-        return json({ ok: true });
+        return isJson ? json({ ok: true }) : formPage(true);
       } catch (e) {
-        return json({ ok: false, error: "Server error" }, 500);
+        return isJson
+          ? json({ ok: false, error: "Server error" }, 500)
+          : formPage(false, SEND_FAILED, 500);
       }
     }
 
@@ -58,10 +81,32 @@ export default {
   },
 };
 
+const SEND_FAILED =
+  "Nie udało się wysłać wiadomości. Zadzwoń do nas: +48 452 370 369.";
+
 function json(obj, status = 200) {
   return new Response(JSON.stringify(obj), {
     status,
     headers: { "Content-Type": "application/json" },
+  });
+}
+
+function formPage(ok, message = "", status = 200) {
+  const title = ok ? "Dziękujemy za wiadomość" : "Wiadomość nie została wysłana";
+  const body = ok ? "Odpiszemy w ciągu 24 godzin." : message;
+  const html =
+    `<!doctype html><html lang="pl"><head><meta charset="utf-8">` +
+    `<meta name="viewport" content="width=device-width, initial-scale=1">` +
+    `<meta name="robots" content="noindex">` +
+    `<title>${title} · Permanent Guru Poznań</title>` +
+    `<link rel="stylesheet" href="/assets/style.css"></head>` +
+    `<body><main class="container" style="padding:96px 24px;max-width:640px">` +
+    `<h1>${title}</h1><p>${esc(body)}</p>` +
+    `<p><a class="btn btn-primary" href="/">Wróć na stronę główną</a></p>` +
+    `</main></body></html>`;
+  return new Response(html, {
+    status,
+    headers: { "Content-Type": "text/html; charset=utf-8" },
   });
 }
 

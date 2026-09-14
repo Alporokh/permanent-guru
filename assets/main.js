@@ -1,3 +1,10 @@
+// Consent: GA4 runs in Google Consent Mode v2. Until the visitor accepts
+// cookies, analytics_storage stays denied (no GA cookies are written) and
+// Microsoft Clarity is not loaded at all.
+function getConsent() {
+    try { return localStorage.getItem('cookie-consent'); } catch { return null; }
+}
+
 // Defer Google tag + Microsoft Clarity until idle/interaction — both are heavy
 // enough on the main thread to blow up Total Blocking Time if loaded eagerly.
 function loadAnalytics() {
@@ -6,6 +13,12 @@ function loadAnalytics() {
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { dataLayer.push(arguments); };
+    gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: getConsent() === 'accepted' ? 'granted' : 'denied',
+    });
     gtag('js', new Date());
     gtag('config', 'G-0RBEJ7QR9N');
 
@@ -13,6 +26,13 @@ function loadAnalytics() {
     gtagScript.async = true;
     gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-0RBEJ7QR9N';
     document.head.appendChild(gtagScript);
+
+    if (getConsent() === 'accepted') loadClarity();
+}
+
+function loadClarity() {
+    if (window.__clarityLoaded) return;
+    window.__clarityLoaded = true;
 
     (function (c, l, a, r, i, t, y) {
         c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
@@ -78,7 +98,7 @@ if (burger && mobileNav) {
     });
 }
 
-// RODO checkbox validation — runs before the inline Formspree handler
+// RODO checkbox validation — runs before the inline form handler
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     const rodoField = contactForm.querySelector('#rodo');
@@ -99,18 +119,46 @@ if (contactForm) {
 
 // Cookie consent banner
 const cookieBanner = document.getElementById('cookie-banner');
+
+function clearAnalyticsCookies() {
+    const host = location.hostname.replace(/^www\./, '');
+    document.cookie.split(';')
+        .map(c => c.split('=')[0].trim())
+        .filter(name => /^(_ga|_gid|_gat|_clck|_clsk)/.test(name))
+        .forEach(name => {
+            ['', host, '.' + host].forEach(domain => {
+                document.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '');
+            });
+        });
+}
+
+function setConsent(choice) {
+    try { localStorage.setItem('cookie-consent', choice); } catch {}
+    loadAnalytics();
+    gtag('consent', 'update', { analytics_storage: choice === 'accepted' ? 'granted' : 'denied' });
+    cookieBanner?.classList.add('cookie-hidden');
+
+    if (choice === 'accepted') {
+        loadClarity();
+    } else {
+        clearAnalyticsCookies();
+        // Clarity can't be stopped once running; a reload starts the page without it
+        if (window.__clarityLoaded) location.reload();
+    }
+}
+
 if (cookieBanner) {
-    if (localStorage.getItem('cookie-consent')) {
+    if (getConsent()) {
         cookieBanner.style.display = 'none';
     }
-
-    document.getElementById('cookie-accept')?.addEventListener('click', () => {
-        localStorage.setItem('cookie-consent', 'accepted');
-        cookieBanner.classList.add('cookie-hidden');
-    });
-
-    document.getElementById('cookie-decline')?.addEventListener('click', () => {
-        localStorage.setItem('cookie-consent', 'declined');
-        cookieBanner.classList.add('cookie-hidden');
-    });
+    document.getElementById('cookie-accept')?.addEventListener('click', () => setConsent('accepted'));
+    document.getElementById('cookie-decline')?.addEventListener('click', () => setConsent('declined'));
 }
+
+// Links to #ustawienia-cookie reopen the banner so visitors can change their choice
+document.addEventListener('click', (e) => {
+    if (!cookieBanner || !e.target.closest('a[href$="#ustawienia-cookie"]')) return;
+    e.preventDefault();
+    cookieBanner.style.display = '';
+    cookieBanner.classList.remove('cookie-hidden');
+});

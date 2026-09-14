@@ -30,6 +30,33 @@ if ('requestIdleCallback' in window) {
     window.addEventListener(evt, loadAnalytics, { once: true, passive: true })
 );
 
+// Lead tracking — GA4 events for form enquiries and contact clicks.
+// loadAnalytics() defines gtag synchronously, so an event sent before the
+// deferred tag has loaded is queued in dataLayer instead of being lost.
+function trackEvent(name, params) {
+    loadAnalytics();
+    gtag('event', name, params);
+}
+window.trackEvent = trackEvent;
+
+document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    const placement = link.closest('[id]')?.id || 'page';
+
+    if (href.startsWith('tel:')) {
+        trackEvent('phone_click', { link_placement: placement });
+    } else if (href.startsWith('mailto:')) {
+        trackEvent('email_click', { link_placement: placement });
+    } else if (link.hostname.endsWith('booksy.com')) {
+        const utmContent = new URL(link.href).searchParams.get('utm_content');
+        trackEvent('booksy_click', { link_placement: utmContent || placement });
+    } else if (link.hostname.endsWith('instagram.com')) {
+        trackEvent('instagram_click', { link_placement: placement, link_url: link.href });
+    }
+});
+
 const burger = document.querySelector('.burger');
 const mobileNav = document.getElementById('mobile-nav');
 

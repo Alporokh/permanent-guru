@@ -627,6 +627,7 @@
                     });
                     const data = await res.json();
                     if (data.ok) {
+                        window.trackEvent && trackEvent('generate_lead', { lead_source: 'website_form', service: form.querySelector('[name="service"]').value || 'nie_wybrano', form_page: location.pathname });
                         form.reset();
                         successMsg.style.display = 'block';
                         setTimeout(() => { successMsg.style.display = 'none'; }, 5000);

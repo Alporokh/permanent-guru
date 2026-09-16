@@ -7,4 +7,4 @@ Disallow: /media-ig-8f3c21/
 Sitemap: https://permanentguru.com/sitemap.xml
 # LLM-friendly summary of this site
 # https://llmstxt.org
-Llms: https://permanentguru.com/llms.txt
+# Llms: https://permanentguru.com/llms.txt

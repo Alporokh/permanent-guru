@@ -15,7 +15,7 @@
 
     --ink: #2A171F;
     --ink-soft: #54414A;
-    --ink-mute: #8C7884;
+    --ink-mute: #6F5B68;
     --line: #E5D2C4;
 
     --font-display: "Montagu Slab", "Roboto Slab", Georgia, serif;
@@ -843,6 +843,8 @@ a:hover {
 
 /* -------- Footer -------- */
 footer {
+    /* muted text sits on a dark ground here, so it lightens instead of darkening */
+    --ink-mute: #A28D99;
     background: var(--ink);
     color: var(--cream);
     padding: 80px 0 32px;

@@ -77,9 +77,21 @@ export default {
     }
 
     // Everything else → serve the static site
-    return env.ASSETS.fetch(request);
+    return withCharset(await env.ASSETS.fetch(request));
   },
 };
+
+// Cloudflare's asset server sends "Content-Type: text/html" with no charset.
+// Browsers fall back to the <meta charset> tag, but crawlers flag the missing
+// header, so declare it here. Nothing else about the response changes.
+function withCharset(response) {
+  const type = response.headers.get("Content-Type") || "";
+  if (response.status === 304) return response;
+  if (!/^text\/html\b/i.test(type) || /charset=/i.test(type)) return response;
+  const out = new Response(response.body, response);
+  out.headers.set("Content-Type", "text/html; charset=utf-8");
+  return out;
+}
 
 const SEND_FAILED =
   "Nie udało się wysłać wiadomości. Zadzwoń do nas: +48 452 370 369.";

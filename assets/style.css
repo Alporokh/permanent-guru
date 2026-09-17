@@ -18,7 +18,7 @@
     --ink-mute: #6F5B68;
     --line: #E5D2C4;
 
-    --font-display: "Montagu Slab", "Roboto Slab", Georgia, serif;
+    --font-display: Georgia, "Times New Roman", Times, serif;
     --font-body: "Lora", Georgia, serif;
 
     --shadow-card: 0 24px 60px -32px rgba(94, 24, 56, 0.25);

@@ -645,7 +645,7 @@ a:hover {
 
 .nails-svc h3 {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 700;   /* Georgia has no 500 - 700 is its real bold */
     color: var(--ink);
     margin: 0 0 10px;
     text-transform: none;

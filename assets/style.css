@@ -1999,3 +1999,20 @@ footer .meta {
 .legal-page .breadcrumb ol {
     justify-content: flex-start;
 }
+
+/* ============ LINKS IN BODY COPY ============ */
+/* Colour alone must not distinguish a link from surrounding text (WCAG 1.4.1),
+   so inline links in prose carry an underline. Buttons, nav, breadcrumbs and
+   card links are excluded - their shape or position already makes them obvious. */
+main p a:not(.btn),
+main li a:not(.btn),
+.contact-form .checkbox-label a,
+footer .brand-block p a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+}

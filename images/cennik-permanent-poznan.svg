@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="t d">
+  <title id="t">Cennik makijażu permanentnego w Poznaniu — ceny regularne</title>
+  <desc id="d">Ceny regularne: metoda włoskowa 1200 zł, pudrowe brwi 800 zł, makijaż permanentny brwi 800 zł, permanentny makijaż ust 800 zł, kreska 600 zł, kreska z cieniowaniem 600 zł, laminacja brwi i rzęs od 100 zł, usuwanie removerem 200 zł, konsultacja 0 zł.</desc>
+
+  <rect width="1200" height="680" fill="#FAF4EE"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#971756"/>
+
+  <!-- soft bloom, echoing the site's background flowers -->
+  <circle cx="1105" cy="118" r="180" fill="#971756" opacity="0.05"/>
+  <circle cx="86" cy="612" r="140" fill="#971756" opacity="0.04"/>
+
+  <text x="72" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="19" letter-spacing="3.4" fill="#6F5B68">CENY REGULARNE</text>
+  <text x="72" y="152" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#2A171F">Makijaż permanentny w <tspan fill="#971756">Poznaniu</tspan></text>
+
+  <line x1="72" y1="192" x2="1128" y2="192" stroke="#E5D2C4" stroke-width="1"/>
+
+  <g font-family="Georgia, 'Times New Roman', serif">
+    <!-- row 1 -->
+    <text x="72" y="248" font-size="27" fill="#2A171F">Brwi — metoda włoskowa</text>
+    <text x="72" y="278" font-size="17" fill="#6F5B68">≈ 2,5 godz.</text>
+    <text x="1128" y="254" font-size="38" fill="#971756" text-anchor="end">1200 zł</text>
+    <line x1="72" y1="306" x2="1128" y2="306" stroke="#E5D2C4" stroke-width="1"/>
+
+    <!-- row 2 -->
+    <text x="72" y="356" font-size="27" fill="#2A171F">Pudrowe brwi (ombré)</text>
+    <text x="72" y="386" font-size="17" fill="#6F5B68">≈ 2 godz.</text>
+    <text x="1128" y="362" font-size="38" fill="#971756" text-anchor="end">800 zł</text>
+    <line x1="72" y1="414" x2="1128" y2="414" stroke="#E5D2C4" stroke-width="1"/>
+
+    <!-- row 3 -->
+    <text x="72" y="464" font-size="27" fill="#2A171F">Permanentny makijaż ust</text>
+    <text x="72" y="494" font-size="17" fill="#6F5B68">≈ 2,5 godz.</text>
+    <text x="1128" y="470" font-size="38" fill="#971756" text-anchor="end">800 zł</text>
+    <line x1="72" y1="522" x2="1128" y2="522" stroke="#E5D2C4" stroke-width="1"/>
+
+    <!-- row 4 -->
+    <text x="72" y="572" font-size="27" fill="#2A171F">Kreska na oku</text>
+    <text x="72" y="602" font-size="17" fill="#6F5B68">≈ 2 godz.</text>
+    <text x="1128" y="578" font-size="38" fill="#971756" text-anchor="end">600 zł</text>
+  </g>
+
+  <rect x="0" y="636" width="1200" height="44" fill="#F2E7DB"/>
+  <text x="72" y="664" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#54414A">Konsultacja 0 zł · znieczulenie +100 zł · korekta 50% ceny zabiegu</text>
+  <text x="1128" y="664" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#6F5B68" text-anchor="end">permanentguru.com</text>
+</svg>

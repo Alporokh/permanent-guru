@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="t d">
-  <title id="t">Cennik makijażu permanentnego w Poznaniu — ceny regularne</title>
+  <title id="t">Cennik makijażu permanentnego w Poznaniu - ceny regularne</title>
   <desc id="d">Ceny regularne: metoda włoskowa 1200 zł, pudrowe brwi 800 zł, makijaż permanentny brwi 800 zł, permanentny makijaż ust 800 zł, kreska 600 zł, kreska z cieniowaniem 600 zł, laminacja brwi i rzęs od 100 zł, usuwanie removerem 200 zł, konsultacja 0 zł.</desc>
 
   <rect width="1200" height="680" fill="#FAF4EE"/>
@@ -16,13 +16,13 @@
 
   <g font-family="Georgia, 'Times New Roman', serif">
     <!-- row 1 -->
-    <text x="72" y="248" font-size="27" fill="#2A171F">Brwi — metoda włoskowa</text>
+    <text x="72" y="248" font-size="27" fill="#2A171F">Brwi - metoda włoskowa</text>
     <text x="72" y="278" font-size="17" fill="#6F5B68">≈ 2,5 godz.</text>
     <text x="1128" y="254" font-size="38" fill="#971756" text-anchor="end">1200 zł</text>
     <line x1="72" y1="306" x2="1128" y2="306" stroke="#E5D2C4" stroke-width="1"/>
 
     <!-- row 2 -->
-    <text x="72" y="356" font-size="27" fill="#2A171F">Pudrowe brwi (ombré)</text>
+    <text x="72" y="356" font-size="27" fill="#2A171F">Pudrowe brwi (ombre)</text>
     <text x="72" y="386" font-size="17" fill="#6F5B68">≈ 2 godz.</text>
     <text x="1128" y="362" font-size="38" fill="#971756" text-anchor="end">800 zł</text>
     <line x1="72" y1="414" x2="1128" y2="414" stroke="#E5D2C4" stroke-width="1"/>

@@ -159,17 +159,6 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 0.22em;
     color: var(--magenta);
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.eyebrow::before {
-    content: "";
-    width: 36px;
-    height: 1px;
-    background: currentColor;
-    display: inline-block;
 }
 
 .lead {
@@ -823,10 +812,6 @@ a:hover {
 .cta-strip .eyebrow {
     color: var(--cream);
     opacity: 0.85;
-}
-
-.cta-strip .eyebrow::before {
-    background: var(--cream);
 }
 
 .cta-strip .btn {

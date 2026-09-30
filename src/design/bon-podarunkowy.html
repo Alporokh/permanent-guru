@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html, body { width: 1080px; height: 1350px; }
 
   body {
@@ -13,27 +12,22 @@
     color: #2A171F;
     position: relative;
     overflow: hidden;
-  }
-
-  /* soft blooms, echoing the site's background flowers */
-  .bloom { position: absolute; border-radius: 50%; background: #971756; }
-  .b1 { width: 620px; height: 620px; top: -230px; right: -210px; opacity: 0.055; }
-  .b2 { width: 460px; height: 460px; bottom: -180px; left: -170px; opacity: 0.045; }
-
-  .rule-top { position: absolute; top: 0; left: 0; right: 0; height: 10px; background: #971756; }
-
-  .frame {
-    position: absolute;
-    top: 64px; right: 64px; bottom: 64px; left: 64px;
-    border: 1px solid #E5D2C4;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 96px 76px 78px;
+    padding: 96px 84px 86px;
   }
 
+  .bloom { position: absolute; border-radius: 50%; background: #971756; }
+  .b1 { width: 560px; height: 560px; top: -200px; right: -190px; opacity: 0.05; }
+  .b2 { width: 420px; height: 420px; bottom: -160px; left: -150px; opacity: 0.04; }
+
+  .rule-top { position: absolute; top: 0; left: 0; right: 0; height: 10px; background: #971756; }
+
+  header, .closing { position: relative; z-index: 2; }
+
   .eyebrow {
-    font-size: 21px;
+    font-size: 20px;
     letter-spacing: 0.34em;
     text-transform: uppercase;
     color: #971756;
@@ -41,40 +35,55 @@
   }
 
   h1 {
-    font-size: 94px;
+    font-size: 72px;
     font-weight: 400;
-    line-height: 1.04;
-    letter-spacing: -0.015em;
-    margin-top: 40px;
+    line-height: 1.1;
+    margin-top: 28px;
+    letter-spacing: -0.01em;
   }
 
   h1 em { font-style: normal; color: #971756; }
 
-  .sub {
-    font-size: 33px;
-    color: #54414A;
-    line-height: 1.45;
-    margin-top: 34px;
-    max-width: 19ch;
+  /* the voucher, presented as an object with weight rather than a flat panel */
+  .stage { position: relative; z-index: 2; display: flex; justify-content: center; }
+
+  .card {
+    width: 840px;
+    aspect-ratio: 8 / 5;
+    border-radius: 20px;
+    background: linear-gradient(142deg, #2A171F 0%, #4C1330 58%, #6E0F3E 100%);
+    color: #FAF4EE;
+    padding: 58px 62px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 48px 90px -34px rgba(42, 23, 31, 0.62);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-2.2deg);
   }
 
-  .divider { width: 132px; height: 1px; background: #E5D2C4; margin: 46px 0 38px; }
-
-  .lead {
-    font-size: 27px;
-    line-height: 1.6;
-    color: #54414A;
-    max-width: 26ch;
+  .card::after {
+    content: "";
+    position: absolute;
+    width: 420px; height: 420px;
+    right: -150px; top: -180px;
+    border-radius: 50%;
+    background: #FAF4EE;
+    opacity: 0.07;
   }
 
-  .lead strong { color: #2A171F; font-weight: 400; }
+  .vc-top { display: flex; justify-content: space-between; align-items: baseline; position: relative; z-index: 1; }
+  .vc-brand { font-size: 23px; letter-spacing: 0.26em; text-transform: uppercase; }
+  .vc-tag, .vc-label { font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(250,244,238,0.72); }
+  .vc-bottom { position: relative; z-index: 1; }
+  .vc-label { display: block; margin-bottom: 18px; }
+  .vc-line { font-size: 42px; line-height: 1.2; color: #FAF4EE; }
 
-  .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
-
-  .studio { font-size: 27px; line-height: 1.5; color: #2A171F; }
-  .studio span { display: block; font-size: 20px; color: #6F5B68; letter-spacing: 0.06em; margin-top: 6px; }
-
-  .terms { font-size: 20px; color: #6F5B68; text-align: right; line-height: 1.6; }
+  .closing { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+  .studio { font-size: 26px; line-height: 1.5; }
+  .studio span { display: block; font-size: 19px; color: #6F5B68; letter-spacing: 0.06em; margin-top: 6px; }
+  .terms { font-size: 19px; color: #6F5B68; text-align: right; line-height: 1.6; }
 </style>
 </head>
 <body>
@@ -82,27 +91,32 @@
   <div class="bloom b1"></div>
   <div class="bloom b2"></div>
 
-  <div class="frame">
-    <div>
-      <div class="eyebrow">Permanent Guru &middot; Poznań</div>
-      <h1>Bon<br><em>podarunkowy</em></h1>
-      <div class="sub">na makijaż permanentny</div>
-      <div class="divider"></div>
-      <div class="lead">
-        Nie wybierasz kwoty. <strong>Wybierasz zabieg</strong> - brwi, usta albo kreskę - a my dbamy
-        o resztę. Konsultacja jest w cenie i zawsze bezpłatna.
+  <header>
+    <div class="eyebrow">Permanent Guru &middot; Poznań</div>
+    <h1>Bon <em>podarunkowy</em><br>na makijaż permanentny</h1>
+  </header>
+
+  <div class="stage">
+    <div class="card">
+      <div class="vc-top">
+        <span class="vc-brand">Permanent Guru</span>
+        <span class="vc-tag">Bon</span>
+      </div>
+      <div class="vc-bottom">
+        <span class="vc-label">Podarunek</span>
+        <div class="vc-line">Zabieg, o którym<br>myśli od dawna</div>
       </div>
     </div>
+  </div>
 
-    <div class="foot">
-      <div class="studio">
-        Iryna Malaniak
-        <span>ul. Zwierzyniecka 10/2, Poznań</span>
-      </div>
-      <div class="terms">
-        ważny 6 miesięcy<br>
-        permanentguru.com
-      </div>
+  <div class="closing">
+    <div class="studio">
+      Iryna Malaniak
+      <span>ul. Zwierzyniecka 10/2, Poznań</span>
+    </div>
+    <div class="terms">
+      ważny 6 miesięcy<br>
+      permanentguru.com
     </div>
   </div>
 </body>

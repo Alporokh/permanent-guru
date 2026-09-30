@@ -2016,3 +2016,111 @@ footer .brand-block p a {
     color: var(--magenta-soft);
     border-bottom-color: var(--magenta-soft);
 }
+
+/* ============ GIFT VOUCHER ============ */
+/* People buy a present they can hand over, so the voucher is built as a card
+   with real depth rather than shown as a flat graphic. Text sits in cream at
+   varying alpha: --magenta-soft measures only 3.29:1 against the lighter end
+   of this gradient and cannot be used here. */
+.voucher-row {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    gap: 72px;
+    align-items: center;
+}
+
+.voucher-card {
+    aspect-ratio: 8 / 5;
+    border-radius: 12px;
+    background: linear-gradient(142deg, #2A171F 0%, #4C1330 58%, var(--magenta-deep) 100%);
+    color: var(--cream);
+    padding: 44px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 34px 70px -30px rgba(42, 23, 31, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+.voucher-card::after {
+    content: "";
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    right: -120px;
+    top: -140px;
+    border-radius: 50%;
+    background: var(--cream);
+    opacity: 0.07;
+}
+
+.voucher-card .vc-top,
+.voucher-card .vc-bottom {
+    position: relative;
+    z-index: 1;
+}
+
+.voucher-card .vc-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.vc-brand {
+    font-family: var(--font-display);
+    font-size: 17px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+}
+
+.vc-tag,
+.vc-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(250, 244, 238, 0.72);
+}
+
+.vc-label {
+    display: block;
+    margin-bottom: 14px;
+}
+
+.vc-line {
+    /* the global p rule sets --ink-soft, which measures 1.80:1 on this card */
+    color: var(--cream);
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(21px, 2.4vw, 31px);
+    line-height: 1.22;
+    font-weight: 400;
+}
+
+.voucher-note {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--ink-mute);
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .voucher-row {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .voucher-card {
+        padding: 34px 32px;
+    }
+}
+
+@media (max-width: 420px) {
+    .voucher-card {
+        aspect-ratio: auto;
+        min-height: 240px;
+        padding: 28px 26px;
+    }
+}

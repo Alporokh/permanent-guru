@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { width: 1080px; height: 1350px; }
+
+  body {
+    background: #FAF4EE;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #2A171F;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* soft blooms, echoing the site's background flowers */
+  .bloom { position: absolute; border-radius: 50%; background: #971756; }
+  .b1 { width: 620px; height: 620px; top: -230px; right: -210px; opacity: 0.055; }
+  .b2 { width: 460px; height: 460px; bottom: -180px; left: -170px; opacity: 0.045; }
+
+  .rule-top { position: absolute; top: 0; left: 0; right: 0; height: 10px; background: #971756; }
+
+  .frame {
+    position: absolute;
+    top: 64px; right: 64px; bottom: 64px; left: 64px;
+    border: 1px solid #E5D2C4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 96px 76px 78px;
+  }
+
+  .eyebrow {
+    font-size: 21px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: #971756;
+    font-style: italic;
+  }
+
+  h1 {
+    font-size: 94px;
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    margin-top: 40px;
+  }
+
+  h1 em { font-style: normal; color: #971756; }
+
+  .sub {
+    font-size: 33px;
+    color: #54414A;
+    line-height: 1.45;
+    margin-top: 34px;
+    max-width: 19ch;
+  }
+
+  .divider { width: 132px; height: 1px; background: #E5D2C4; margin: 46px 0 38px; }
+
+  .lead {
+    font-size: 27px;
+    line-height: 1.6;
+    color: #54414A;
+    max-width: 26ch;
+  }
+
+  .lead strong { color: #2A171F; font-weight: 400; }
+
+  .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
+
+  .studio { font-size: 27px; line-height: 1.5; color: #2A171F; }
+  .studio span { display: block; font-size: 20px; color: #6F5B68; letter-spacing: 0.06em; margin-top: 6px; }
+
+  .terms { font-size: 20px; color: #6F5B68; text-align: right; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="rule-top"></div>
+  <div class="bloom b1"></div>
+  <div class="bloom b2"></div>
+
+  <div class="frame">
+    <div>
+      <div class="eyebrow">Permanent Guru &middot; Poznań</div>
+      <h1>Bon<br><em>podarunkowy</em></h1>
+      <div class="sub">na makijaż permanentny</div>
+      <div class="divider"></div>
+      <div class="lead">
+        Nie wybierasz kwoty. <strong>Wybierasz zabieg</strong> - brwi, usta albo kreskę - a my dbamy
+        o resztę. Konsultacja jest w cenie i zawsze bezpłatna.
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="studio">
+        Iryna Malaniak
+        <span>ul. Zwierzyniecka 10/2, Poznań</span>
+      </div>
+      <div class="terms">
+        ważny 6 miesięcy<br>
+        permanentguru.com
+      </div>
+    </div>
+  </div>
+</body>
+</html>

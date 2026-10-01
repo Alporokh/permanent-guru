@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>IG 16 - metoda włoskowa czy microblading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ------------------------------------------------------------------
+           Instagram slides for post 16. The palette and metrics are sampled
+           from the existing post 08 carousel so this set sits beside it
+           without looking like a different account:
+             ground   #110D0F   bar     #5A2237
+             cream    #F6EFE8   gold    #D7BD72
+             heading  #6E0F3E   ink     #221A16
+           Render one slide at a time with ?s=N - see render-ig.sh.
+           ------------------------------------------------------------------ */
+        :root {
+            --dark: #110D0F;
+            --cream: #F6EFE8;
+            --bar: #5A2237;
+            --gold: #D7BD72;
+            --maroon: #6E0F3E;
+            --ink: #221A16;
+            --muted: #8A7A72;
+            --pad: 96px;
+            --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+            --sans: "Poppins", "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body { width: 1080px; background: var(--dark); }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            position: relative;
+            overflow: hidden;
+            display: none;
+        }
+
+        body.single .slide.on { display: flex; }
+
+        /* contact-sheet mode: no ?s= given, so show them all stacked */
+        body:not(.single) .slide { display: flex; margin-bottom: 24px; }
+
+        /* -------- dark slides (cover, CTA) -------- */
+        .slide.dark {
+            background: var(--dark);
+            color: var(--cream);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--pad);
+        }
+
+        /* circle 134 to glyph 84 is the ratio the existing post 08 cover uses */
+        .badge {
+            width: 134px;
+            height: 134px;
+            border-radius: 50%;
+            background: #1A1316;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+        }
+
+        .badge img { width: 84px; display: block; }
+
+        /* post 08 anchors the cover block near the top and lets the swipe
+           cue sit alone at the bottom, rather than centring everything */
+        .slide.cover {
+            justify-content: flex-start;
+            padding-top: 155px;
+        }
+
+        .wordmark {
+            font-family: var(--sans);
+            font-weight: 400;
+            font-size: 21px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 40px;
+        }
+
+        .wordmark span {
+            display: block;
+            font-size: 16px;
+            letter-spacing: 0.26em;
+            color: var(--muted);
+            margin-top: 14px;
+        }
+
+        .rule {
+            width: 120px;
+            height: 2px;
+            background: var(--gold);
+            opacity: 0.55;
+            margin: 48px 0;
+            flex: none;
+        }
+
+        .dark h1 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 82px;
+            line-height: 1.22;
+            letter-spacing: -0.005em;
+        }
+
+        .dark h1 em { font-style: normal; color: var(--gold); }
+
+        .dark .sub {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 31px;
+            line-height: 1.6;
+            color: #C9BBB3;
+            margin-top: 40px;
+            max-width: 760px;
+        }
+
+        .swipe {
+            position: absolute;
+            bottom: 96px;
+            left: 0;
+            right: 0;
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 26px;
+            letter-spacing: 0.22em;
+            text-transform: lowercase;
+            color: #C9BBB3;
+        }
+
+        .contact {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 26px;
+            line-height: 1.85;
+            color: #C9BBB3;
+        }
+
+        .contact strong {
+            display: block;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 6px;
+        }
+
+        /* -------- light slides (content) -------- */
+        .slide.light {
+            background: var(--cream);
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--pad);
+        }
+
+        .slide.light::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 13px;
+            background: var(--bar);
+        }
+
+        .num {
+            font-family: var(--serif);
+            font-size: 42px;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+        }
+
+        .num + .hr {
+            width: 72px;
+            height: 2px;
+            background: var(--gold);
+            margin: 34px 0 44px;
+        }
+
+        .light h2 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 1.32;
+            color: var(--maroon);
+        }
+
+        .light p {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 38px;
+            line-height: 1.62;
+            color: var(--ink);
+            margin-top: 48px;
+        }
+
+        .light p b { font-weight: 500; }
+
+        .light ul {
+            list-style: none;
+            margin-top: 48px;
+            display: grid;
+            gap: 26px;
+        }
+
+        .light li {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 37px;
+            line-height: 1.45;
+            color: var(--ink);
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .light li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 25px;
+            width: 28px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .foot {
+            position: absolute;
+            left: var(--pad);
+            right: var(--pad);
+            bottom: 88px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .foot .url {
+            font-family: var(--sans);
+            font-weight: 300;
+            font-size: 24px;
+            color: #7D6E66;
+        }
+
+        .foot .badge {
+            width: 62px;
+            height: 62px;
+            background: var(--dark);
+        }
+
+        .foot .badge img { width: 36px; }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1 - okładka -->
+    <section class="slide dark cover" data-s="1" data-name="okladka">
+        <div class="badge"><img src="monogram.png" alt=""></div>
+        <div class="wordmark">Permanent Guru<span>Makijaż permanentny · Poznań</span></div>
+        <div class="rule"></div>
+        <h1>Metoda włoskowa<br>czy <em>microblading?</em></h1>
+        <p class="sub">Różnica jest jedna. I nie chodzi o to, jak brwi wyglądają zaraz po zabiegu.</p>
+        <div class="swipe">przesuń &nbsp;&rarr;</div>
+    </section>
+
+    <!-- 2 - narzędzie -->
+    <section class="slide light" data-s="2" data-name="narzedzie">
+        <div class="num">01</div>
+        <div class="hr"></div>
+        <h2>Różnica jest<br>w narzędziu</h2>
+        <p>Microblading <b>nacina</b> naskórek ręcznym ostrzem. Każdy włosek to maleńkie cięcie.</p>
+        <p>Metoda włoskowa wprowadza pigment maszynką - serią punktowych <b>wkłuć</b> na stałej głębokości.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 3 - blizna -->
+    <section class="slide light" data-s="3" data-name="naciecie-a-wklucie">
+        <div class="num">02</div>
+        <div class="hr"></div>
+        <h2>Nacięcie skóra<br>zamyka blizną</h2>
+        <p>Rana liniowa goi się tkanką bliznową, nawet jeśli nie widać tego gołym okiem.</p>
+        <p>Wkłucie jest punktowe. Uszkadza mniej tkanki, mniej krwawi i goi się szybciej.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 4 - odświeżanie -->
+    <section class="slide light" data-s="4" data-name="odswiezanie">
+        <div class="num">03</div>
+        <div class="hr"></div>
+        <h2>Dlatego brwi<br>można odświeżać</h2>
+        <p>Po metodzie włoskowej skóra nie wysyca się bliznami, więc kolejne odświeżenia pracują na zdrowej tkance.</p>
+        <p>Microblading zwykle da się powtórzyć <b>dwa, maksymalnie cztery razy</b>.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 5 - dla kogo -->
+    <section class="slide light" data-s="5" data-name="dla-kogo">
+        <div class="num">04</div>
+        <div class="hr"></div>
+        <h2>Komu to robi<br>największą różnicę</h2>
+        <ul>
+            <li>cera naczynkowa</li>
+            <li>skóra cienka i wrażliwa</li>
+            <li>cera dojrzała</li>
+            <li>po zabiegach medycyny estetycznej</li>
+        </ul>
+        <p>Tu nacinanie oznacza więcej krwawienia i mniej przewidywalne przyjęcie pigmentu.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 6 - umiejętność -->
+    <section class="slide light" data-s="6" data-name="umiejetnosc">
+        <div class="num">05</div>
+        <div class="hr"></div>
+        <h2>Łagodniejsza dla skóry,<br>trudniejsza w pracy</h2>
+        <p>Na jednej brwi układam kilkadziesiąt osobnych kresek. Każda ma swój kierunek, długość i grubość.</p>
+        <p>Kreski równoległe i tej samej długości czytają się jako paski. Naturalny efekt bierze się
+            z <b>nieregularności</b>.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 7 - uczciwie -->
+    <section class="slide light" data-s="7" data-name="kiedy-nie">
+        <div class="num">06</div>
+        <div class="hr"></div>
+        <h2>Kiedy jej<br>nie proponuję</h2>
+        <p>Przy cerze bardzo tłustej i rozszerzonych porach cienka kreska z czasem się rozlewa. Wtedy proponuję
+            pudrowe brwi albo metodę łączoną.</p>
+        <p>Powiem to na konsultacji, zamiast szukać sposobu, żeby zabieg mimo wszystko się odbył.</p>
+        <div class="foot">
+            <span class="url">permanentguru.com</span>
+            <span class="badge"><img src="monogram.png" alt=""></span>
+        </div>
+    </section>
+
+    <!-- 8 - CTA -->
+    <section class="slide dark" data-s="8" data-name="cta">
+        <div class="badge"><img src="monogram.png" alt=""></div>
+        <div class="rule"></div>
+        <h1>Co sprawdzi się<br><em>u Ciebie?</em></h1>
+        <p class="sub">Na konsultacji oglądam skórę i włoski, i mówię wprost, która metoda ma sens.
+            Konsultacja jest bezpłatna i nie zobowiązuje.</p>
+        <div class="rule"></div>
+        <div class="contact">
+            <strong>permanentguru.com</strong>
+            ul. Zwierzyniecka 10/2, Poznań<br>
+            +48 452 370 369
+        </div>
+    </section>
+
+    <script>
+        // ?s=N renders a single slide, so each one can be screenshotted at 1080x1350
+        var s = new URLSearchParams(location.search).get("s");
+        if (s) {
+            document.body.classList.add("single");
+            var el = document.querySelector('.slide[data-s="' + s + '"]');
+            if (el) el.classList.add("on");
+        }
+    </script>
+</body>
+
+</html>

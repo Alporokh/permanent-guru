@@ -1,7 +1,7 @@
 {
   "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc w tablicy = kolejnosc slajdow.",
   "base": "https://permanentguru.com/media-ig-8f3c21/",
-  "updated": "2026-09-09",
+  "updated": "2026-10-01",
   "posts": {
     "01": [
       "https://permanentguru.com/media-ig-8f3c21/01/01-1_cennik.jpg",
@@ -73,6 +73,16 @@
     ],
     "15": [
       "https://permanentguru.com/media-ig-8f3c21/15/15-1_laminacja.jpg"
+    ],
+    "16": [
+      "https://permanentguru.com/media-ig-8f3c21/16/16-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-2_narzedzie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-3_naciecie-a-wklucie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-4_odswiezanie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-5_dla-kogo.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-6_umiejetnosc.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-7_kiedy-nie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-8_cta.jpg"
     ]
   }
 }

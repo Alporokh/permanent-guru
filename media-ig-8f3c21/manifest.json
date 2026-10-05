@@ -1,7 +1,7 @@
 {
   "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc = kolejnosc slajdow.",
   "base": "https://permanentguru.com/media-ig-8f3c21/",
-  "updated": "2026-10-03",
+  "updated": "2026-10-05",
   "posts": {
     "16": [
       "https://permanentguru.com/media-ig-8f3c21/16/16-1_stary-pigment-rudy.jpg",
@@ -10,6 +10,10 @@
     "18": [
       "https://permanentguru.com/media-ig-8f3c21/18/18-1_po-zabiegu.jpg",
       "https://permanentguru.com/media-ig-8f3c21/18/18-2_rok-po-zabiegu.jpg"
+    ],
+    "19": [
+      "https://permanentguru.com/media-ig-8f3c21/19/19-1_korekta.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/19/19-2_dlaczego.jpg"
     ],
     "20": [
       "https://permanentguru.com/media-ig-8f3c21/20/20-1_cennik.jpg"

@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 # Wrangler local state (lives in the served asset root)
 .wrangler/
+
+media-ig-8f3c21/_do-decyzji/
+media-ig-8f3c21/_RAPORT.txt

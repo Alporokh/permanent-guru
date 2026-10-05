@@ -1,11 +1,82 @@
 {
-  "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc = kolejnosc slajdow.",
+  "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc w tablicy = kolejnosc slajdow.",
   "base": "https://permanentguru.com/media-ig-8f3c21/",
   "updated": "2026-10-05",
   "posts": {
+    "01": [
+      "https://permanentguru.com/media-ig-8f3c21/01/01-1_cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/01/01-2_efekt.jpg"
+    ],
+    "02": [
+      "https://permanentguru.com/media-ig-8f3c21/02/02-1_przed.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/02/02-2_po.jpg"
+    ],
+    "03": [
+      "https://permanentguru.com/media-ig-8f3c21/03/03-1_makro-wloskowa.jpg"
+    ],
+    "04": [
+      "https://permanentguru.com/media-ig-8f3c21/04/04-1_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-2_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-3_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-4_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-5_efekt.jpg"
+    ],
+    "05": [
+      "https://permanentguru.com/media-ig-8f3c21/05/05-1_reel.mp4"
+    ],
+    "06": [
+      "https://permanentguru.com/media-ig-8f3c21/06/06-1_w-dniu-zabiegu.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/06/06-2_po-zagojeniu.jpg"
+    ],
+    "07": [
+      "https://permanentguru.com/media-ig-8f3c21/07/07-1_portret-iryny.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/07/07-2_przy-pracy.jpg"
+    ],
+    "08": [
+      "https://permanentguru.com/media-ig-8f3c21/08/08-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-2_pytanie-ciaza.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-3_pytanie-hashimoto.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-4_pytanie-opryszczka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-5_pytanie-minusy.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-6_cta.jpg"
+    ],
+    "09": [
+      "https://permanentguru.com/media-ig-8f3c21/09/09-1_mapowanie-siatka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-2_mapowanie-pomiar.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-3_linijka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-4_przy-pracy.jpg"
+    ],
+    "10": [
+      "https://permanentguru.com/media-ig-8f3c21/10/10-1_cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-2_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-3_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/10/10-4_efekt.jpg"
+    ],
+    "11": [
+      "https://permanentguru.com/media-ig-8f3c21/11/11-1_usta-makro.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-2_usta-profil.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-3_usta-portret.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-4_usta-naturalne.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/11/11-5_usta-makro-2.jpg"
+    ],
+    "12": [
+      "https://permanentguru.com/media-ig-8f3c21/12/12-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-2_co-robic.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-3_czego-nie-robic.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/12/12-4_studio.jpg"
+    ],
+    "13": [
+      "https://permanentguru.com/media-ig-8f3c21/13/13-1_kreska-makro.jpg"
+    ],
+    "14": [
+      "https://permanentguru.com/media-ig-8f3c21/14/14-1_przed-po.jpg"
+    ],
+    "15": [
+      "https://permanentguru.com/media-ig-8f3c21/15/15-1_laminacja.jpg"
+    ],
     "16": [
-      "https://permanentguru.com/media-ig-8f3c21/16/16-1_stary-pigment-rudy.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/16/16-2_stary-pigment-szary.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/16/16-1_rudy-pigment.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/16/16-2_szaro-niebieskie.jpg"
     ],
     "17": [
       "https://permanentguru.com/media-ig-8f3c21/17/17-1_to-nie-tatuaz.jpg",
@@ -17,59 +88,78 @@
       "https://permanentguru.com/media-ig-8f3c21/18/18-2_rok-po-zabiegu.jpg"
     ],
     "19": [
-      "https://permanentguru.com/media-ig-8f3c21/19/19-1_korekta.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/19/19-2_dlaczego.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/19/19-1_druga-wizyta.jpg"
     ],
     "20": [
-      "https://permanentguru.com/media-ig-8f3c21/20/20-1_cennik.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/20/20-1_cennik-do-31-10.jpg"
     ],
     "21": [
-      "https://permanentguru.com/media-ig-8f3c21/21/21-1_mapowanie.mp4"
+      "https://permanentguru.com/media-ig-8f3c21/21/21-1_reel-mapowanie.mp4"
     ],
     "22": [
-      "https://permanentguru.com/media-ig-8f3c21/22/22-1_przed-po.mp4"
+      "https://permanentguru.com/media-ig-8f3c21/22/22-1_reel-metody.mp4"
+    ],
+    "23": [
+      "https://permanentguru.com/media-ig-8f3c21/23/23-1_nowe-ceny.jpg"
+    ],
+    "24": [
+      "https://permanentguru.com/media-ig-8f3c21/24/24-1_120-godzin.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/24/24-2_zestawienie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/24/24-3_dla-kogo.jpg"
     ],
     "25": [
-      "https://permanentguru.com/media-ig-8f3c21/25/25-1_poznan-jesien.mp4"
+      "https://permanentguru.com/media-ig-8f3c21/25/25-1_brwi-animacja.mp4"
     ],
     "26": [
-      "https://permanentguru.com/media-ig-8f3c21/26/26-1_usta-zagojone.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/26/26-2_usta-w-kontekscie.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/26/26-1_reel-jesien-poznan.mp4"
     ],
     "27": [
-      "https://permanentguru.com/media-ig-8f3c21/27/27-1_laminacja-brwi.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/27/27-2_laminacja-brwi-rzes.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/27/27-1_usta-naturalne.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/27/27-2_usta-rysunek.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/27/27-3_usta-efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/27/27-4_usta-czerwien.jpg"
     ],
     "28": [
-      "https://permanentguru.com/media-ig-8f3c21/28/28-1_portret.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/28/28-1_laminacja-brwi.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/28/28-2_laminacja-brwi-rzes.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/28/28-3_portret.jpg"
     ],
     "29": [
-      "https://permanentguru.com/media-ig-8f3c21/29/29-1_co-wchodzi.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/29/29-2_pigment-i-narzedzia.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/29/29-3_wywiad-medyczny.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/29/29-1_konsultacja.png"
+    ],
+    "30": [
+      "https://permanentguru.com/media-ig-8f3c21/30/30-1_okladka.png",
+      "https://permanentguru.com/media-ig-8f3c21/30/30-2_pigment-i-narzedzia.png",
+      "https://permanentguru.com/media-ig-8f3c21/30/30-3_wywiad.png"
     ],
     "31": [
-      "https://permanentguru.com/media-ig-8f3c21/31/31-1_przed-po-odnowienie.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/31/31-1_portret.jpg"
     ],
     "32": [
-      "https://permanentguru.com/media-ig-8f3c21/32/32-1_bon-karta.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/32/32-1_przed-po.jpg"
     ],
     "33": [
-      "https://permanentguru.com/media-ig-8f3c21/33/33-1_bon-prezent.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/33/33-1_bon.png"
+    ],
+    "34": [
+      "https://permanentguru.com/media-ig-8f3c21/34/34-1_bon-swieta.jpg"
+    ],
+    "35": [
+      "https://permanentguru.com/media-ig-8f3c21/35/35-1_brwi-animacja.mp4"
     ],
     "36": [
-      "https://permanentguru.com/media-ig-8f3c21/36/36-1_okladka.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-2_narzedzie.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-3_naciecie-a-wklucie.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-4_odswiezanie.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-5_dla-kogo.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-6_umiejetnosc.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-7_kiedy-nie.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/36/36-8_cta.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/36/36-1_przy-pracy.jpg"
     ],
     "37": [
-      "https://permanentguru.com/media-ig-8f3c21/37/37-1_nowe-ceny.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/37/37-2_warunki.jpg"
+      "https://permanentguru.com/media-ig-8f3c21/37/37-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-2_narzedzie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-3_naciecie-a-wklucie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-4_odswiezanie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-5_dla-kogo.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-6_umiejetnosc.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-7_kiedy-nie.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-8_cta.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/37/37-9_brwi-makro.jpg"
     ]
   }
 }

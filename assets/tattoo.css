@@ -17,12 +17,15 @@ body.tattoo-page {
     --line: #C8C2BA;
 
     --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
-    --font-body: "JetBrains Mono", "Courier New", monospace;
+    --font-body: "Lora", Georgia, serif;
+
+    /* the one brand colour kept, so a hover still feels like this studio */
+    --brand-magenta: #971756;
 
     --shadow-card: none;
 
     background: var(--cream);
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .tattoo-page .bg-flower {
@@ -93,14 +96,23 @@ body.tattoo-page {
     color: var(--ink);
 }
 
+/* Buttons rest in black and turn magenta on hover, the way they do on the
+   rest of the site - the one moment the brand colour shows through here. */
+.tattoo-page .btn-primary:hover,
+.tattoo-page .btn-ghost:hover {
+    background: var(--brand-magenta);
+    border-color: var(--brand-magenta);
+    color: #FFFFFF;
+}
+
 .tattoo-page .cta-strip .btn {
     color: var(--ink);
 }
 
 .tattoo-page .cta-strip .btn:hover {
-    background: transparent;
-    color: var(--cream);
-    border-color: var(--cream);
+    background: var(--brand-magenta);
+    color: #FFFFFF;
+    border-color: var(--brand-magenta);
 }
 
 .tattoo-page a:not(.btn) {

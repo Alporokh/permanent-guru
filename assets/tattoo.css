@@ -1,0 +1,158 @@
+/* Tatuaż page only: black-and-white look (palette and type follow stintattoostudio.com).
+   Loaded after style.css on /tatuaz-poznan; everything is scoped to body.tattoo-page. */
+
+body.tattoo-page {
+    --magenta: #0A0A0A;
+    --magenta-deep: #3A3835;
+    --magenta-soft: #6B6560;
+    --magenta-wash: rgba(10, 10, 10, 0.05);
+
+    --cream: #FFFFFF;
+    --cream-deep: #F5F2EC;
+    --cream-card: #FFFFFF;
+
+    --ink: #0A0A0A;
+    --ink-soft: #3A3835;
+    --ink-mute: #6B6560;
+    --line: #C8C2BA;
+
+    --font-display: "Inter", "Helvetica Neue", Arial, sans-serif;
+    --font-body: "JetBrains Mono", "Courier New", monospace;
+
+    --shadow-card: none;
+
+    background: var(--cream);
+    font-size: 15px;
+}
+
+.tattoo-page .bg-flower {
+    display: none;
+}
+
+.tattoo-page .site-nav {
+    background: rgba(255, 255, 255, 0.94);
+}
+
+/* Headings: uppercase grotesque, no italics */
+.tattoo-page h1,
+.tattoo-page h2,
+.tattoo-page h3 {
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+}
+
+.tattoo-page h1 {
+    font-size: clamp(44px, 8vw, 104px);
+    line-height: 0.95;
+}
+
+.tattoo-page h2 {
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+}
+
+.tattoo-page h1 em,
+.tattoo-page h2 em,
+.tattoo-page .serif-em {
+    font-family: var(--font-display);
+    font-style: normal;
+    color: var(--ink-mute);
+}
+
+.tattoo-page .eyebrow {
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+}
+
+.tattoo-page p,
+.tattoo-page .features-list li {
+    line-height: 1.75;
+}
+
+.tattoo-page .features-list li {
+    font-size: 15px;
+}
+
+.tattoo-page .features-list li::before {
+    background: var(--ink);
+}
+
+/* Square, black buttons */
+.tattoo-page .btn {
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+}
+
+.tattoo-page .btn-ghost {
+    border-color: var(--line);
+    color: var(--ink);
+}
+
+.tattoo-page .cta-strip .btn {
+    color: var(--ink);
+}
+
+.tattoo-page .cta-strip .btn:hover {
+    background: transparent;
+    color: var(--cream);
+    border-color: var(--cream);
+}
+
+.tattoo-page a:not(.btn) {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.tattoo-page .site-nav a,
+.tattoo-page .mobile-nav a,
+.tattoo-page footer a,
+.tattoo-page .brand {
+    text-decoration: none;
+}
+
+/* Photos in black and white, colour on hover */
+.tattoo-page .feature-row img,
+.tattoo-page .gallery img {
+    filter: grayscale(100%) contrast(1.05);
+    transition: filter 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tattoo-page .feature-row .image:hover img,
+.tattoo-page .gallery .tile:hover img {
+    filter: none;
+}
+
+.tattoo-page .gallery .tile {
+    aspect-ratio: 3 / 4;
+    border-radius: 0;
+}
+
+.tattoo-page .gallery figcaption {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    margin-top: 10px;
+}
+
+.tattoo-page .form-success {
+    background: var(--magenta-wash);
+}
+
+.tattoo-page input,
+.tattoo-page select,
+.tattoo-page textarea {
+    border-radius: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tattoo-page .feature-row img,
+    .tattoo-page .gallery img {
+        transition: none;
+    }
+}

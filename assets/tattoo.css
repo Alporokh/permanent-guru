@@ -36,6 +36,18 @@ body.tattoo-page {
     background: rgba(255, 255, 255, 0.94);
 }
 
+/* The shared nav hovers to var(--magenta), which this page redefines as
+   black - so hovering did nothing visible. Point the hovers at the brand
+   colour instead, matching the buttons and the rest of the site. */
+.tattoo-page .nav-links a:hover,
+.tattoo-page .nav-links li.has-dropdown > button:hover,
+.tattoo-page .nav-links .dropdown a:hover,
+.tattoo-page .mobile-nav ul li a:hover,
+.tattoo-page .mobile-nav ul li button:hover,
+.tattoo-page .mobile-nav .mobile-submenu li a:hover {
+    color: var(--brand-magenta);
+}
+
 /* Headings: uppercase grotesque, no italics */
 .tattoo-page h1,
 .tattoo-page h2,

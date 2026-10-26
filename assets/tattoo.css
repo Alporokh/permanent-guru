@@ -175,6 +175,51 @@ body.tattoo-page {
     margin-top: 10px;
 }
 
+/* The gift voucher. Everywhere else it carries the brand gradient; here it
+   rests in charcoal like the rest of the page and the magenta only arrives
+   on hover, the same move as the buttons, the nav and the logo. Gradients
+   do not interpolate, so the brand one is layered underneath as ::before
+   and faded in - ::after (the light circle) still paints over it. */
+/* a.voucher-card, not .voucher-card: the underline rule above is
+   .tattoo-page a:not(.btn), which outranks a plain class pair */
+.tattoo-page a.voucher-card {
+    background: linear-gradient(142deg, #121212 0%, #262626 58%, var(--magenta-deep) 100%);
+    box-shadow: 0 34px 70px -30px rgba(10, 10, 10, 0.45);
+    text-decoration: none;
+    transition: box-shadow 0.35s ease;
+}
+
+.tattoo-page .voucher-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(142deg, #2A171F 0%, #4C1330 58%, #6E0F3E 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.tattoo-page .voucher-card:hover::before,
+.tattoo-page .voucher-card:focus-visible::before {
+    opacity: 1;
+}
+
+.tattoo-page .voucher-card:hover {
+    box-shadow: 0 34px 70px -30px rgba(110, 15, 62, 0.5);
+}
+
+/* .tattoo-page p sets line-height 1.75 and outranks .vc-line, which would
+   pull the card's headline apart */
+.tattoo-page .vc-line {
+    line-height: 1.22;
+}
+
+/* the micro-labels are structural, so they follow Inter rather than the
+   body serif */
+.tattoo-page .vc-tag,
+.tattoo-page .vc-label {
+    font-family: var(--font-display);
+}
+
 .tattoo-page .form-success {
     background: var(--magenta-wash);
 }
@@ -187,7 +232,9 @@ body.tattoo-page {
 
 @media (prefers-reduced-motion: reduce) {
     .tattoo-page .feature-row img,
-    .tattoo-page .gallery img {
+    .tattoo-page .gallery img,
+    .tattoo-page .voucher-card,
+    .tattoo-page .voucher-card::before {
         transition: none;
     }
 }

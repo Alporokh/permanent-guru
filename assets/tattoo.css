@@ -48,6 +48,17 @@ body.tattoo-page {
     color: var(--brand-magenta);
 }
 
+/* The logo too. Elsewhere it already sits in magenta; here it is black,
+   so the hover is what reveals the brand colour. The tagline underneath
+   stays muted - it is a strapline, not part of the mark. */
+.tattoo-page .brand {
+    transition: color 0.18s ease;
+}
+
+.tattoo-page .brand:hover {
+    color: var(--brand-magenta);
+}
+
 /* Headings: uppercase grotesque, no italics */
 .tattoo-page h1,
 .tattoo-page h2,

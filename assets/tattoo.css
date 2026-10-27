@@ -34,17 +34,17 @@ body.tattoo-page {
    paper than to a picture. No blur - it would only mush the lines. */
 .tattoo-page .bg-flower {
     display: block;
-    background-image: url('tattoo-flower.svg');
+    background-image: url('tattoo-flower.png');
     filter: none;
-    opacity: 0.055;
+    opacity: 0.09;
 }
 
 .tattoo-page .bg-flower.bl {
-    opacity: 0.045;
+    opacity: 0.075;
 }
 
 .tattoo-page .bg-flower.mr {
-    opacity: 0.04;
+    opacity: 0.07;
 }
 
 .tattoo-page .site-nav {

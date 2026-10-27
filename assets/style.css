@@ -29,6 +29,13 @@
     box-sizing: border-box;
 }
 
+/* img tags carry width/height so the browser reserves space before they load;
+   height:auto keeps that from stretching an image that CSS resizes by width */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 html,
 body {
     margin: 0;

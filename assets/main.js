@@ -150,6 +150,9 @@ function setConsent(choice) {
 if (cookieBanner) {
     if (getConsent()) {
         cookieBanner.style.display = 'none';
+        // the class is what the WhatsApp button's CSS watches, so it has to be
+        // set here too - display:none alone leaves the button pushed upwards
+        cookieBanner.classList.add('cookie-hidden');
     }
     document.getElementById('cookie-accept')?.addEventListener('click', () => setConsent('accepted'));
     document.getElementById('cookie-decline')?.addEventListener('click', () => setConsent('declined'));

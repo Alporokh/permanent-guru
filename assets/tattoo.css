@@ -220,6 +220,17 @@ body.tattoo-page {
     font-family: var(--font-display);
 }
 
+/* --magenta is black on this page, so the button already rests black; only
+   the hover needs pointing at the brand colour instead of the grey that
+   --magenta-deep becomes here. */
+.tattoo-page .wa-float:hover {
+    background: var(--brand-magenta);
+}
+
+.tattoo-page .wa-float:focus-visible {
+    outline-color: var(--brand-magenta);
+}
+
 .tattoo-page .form-success {
     background: var(--magenta-wash);
 }

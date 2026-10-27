@@ -2131,3 +2131,85 @@ footer .brand-block p a {
         padding: 28px 26px;
     }
 }
+
+/* -------- WhatsApp -------- */
+/* Most people here would rather write than call, so the quickest way to do
+   that stays in reach on every page. Magenta, not WhatsApp green: the glyph
+   already says which app opens, and green against this palette reads as a
+   third-party widget bolted onto the site. */
+.wa-float {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 48;
+    /* under the mobile nav (49), so an open menu covers it */
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--magenta);
+    color: var(--cream);
+    box-shadow: 0 10px 30px -8px rgba(42, 23, 31, 0.55);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.wa-float svg {
+    width: 27px;
+    height: 27px;
+    display: block;
+}
+
+.wa-float:hover {
+    background: var(--magenta-deep);
+    transform: scale(1.07);
+}
+
+.wa-float:focus-visible {
+    outline: 2px solid var(--magenta-deep);
+    outline-offset: 3px;
+}
+
+/* The banner is fixed to the bottom at z-index 9999 and would bury the
+   button, so step the button above it for as long as it is up. main.js adds
+   .cookie-hidden whenever the banner goes away, including on a repeat visit. */
+#cookie-banner:not(.cookie-hidden) ~ .wa-float {
+    bottom: 132px;
+}
+
+@media (max-width: 700px) {
+    .wa-float {
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    .wa-float svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* the banner wraps onto more lines as the screen narrows, so the button
+       has to step up further to stay clear of it */
+    #cookie-banner:not(.cookie-hidden) ~ .wa-float {
+        bottom: 170px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cookie-banner:not(.cookie-hidden) ~ .wa-float {
+        bottom: 240px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wa-float {
+        transition: none;
+    }
+
+    .wa-float:hover {
+        transform: none;
+    }
+}

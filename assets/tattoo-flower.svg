@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" fill="none" stroke="#0A0A0A"
+    stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Fine-line botanical for the tattoo page background: a seed pod on a long
+       arching stem, petals opening around it. One line weight, no fill - the
+       way the work on this page is drawn. Colour and opacity come from CSS. -->
+
+  <!-- the stem bundle: loose tips upper left, gathering as it falls to the pod -->
+  <path d="M40 4C146 40 232 130 258 272" />
+  <path d="M62 16C148 64 224 148 254 274" />
+  <path d="M28 26C112 68 200 144 248 276" stroke-width="2.3" />
+  <path d="M12 54C98 102 188 168 244 280" />
+  <path d="M8 92C92 140 178 202 240 286" />
+
+  <!-- the pod -->
+  <circle cx="252" cy="322" r="46" />
+  <path d="M252 276v92" />
+  <path d="M252 276C230 298 230 346 252 368" />
+  <path d="M252 276C274 298 274 346 252 368" />
+
+  <!-- petals opening around it -->
+  <path d="M214 308C193 274 154 260 115 272C137 307 175 321 214 308Z" />
+  <path d="M217 342C177 336 141 357 126 395C166 400 202 380 217 342Z" />
+  <path d="M249 362C221 392 218 433 240 467C268 437 271 396 249 362Z" />
+  <path d="M283 348C291 388 323 414 363 416C355 376 324 349 283 348Z" />
+  <path d="M291 312C322 328 354 319 373 290C342 275 310 283 291 312Z" />
+
+  <!-- one wisp trailing off below -->
+  <path d="M240 467C228 498 234 524 256 534" />
+</svg>

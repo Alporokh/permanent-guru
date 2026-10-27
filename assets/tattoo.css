@@ -28,8 +28,23 @@ body.tattoo-page {
     font-size: 16px;
 }
 
+/* The shared motif is a solid magenta rosette, which is why this page hid it.
+   The three placed layers are still useful though, so swap in a fine-line
+   botanical instead: black at a few percent, closer to a watermark in the
+   paper than to a picture. No blur - it would only mush the lines. */
 .tattoo-page .bg-flower {
-    display: none;
+    display: block;
+    background-image: url('tattoo-flower.svg');
+    filter: none;
+    opacity: 0.055;
+}
+
+.tattoo-page .bg-flower.bl {
+    opacity: 0.045;
+}
+
+.tattoo-page .bg-flower.mr {
+    opacity: 0.04;
 }
 
 .tattoo-page .site-nav {

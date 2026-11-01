@@ -1,0 +1,20 @@
+# Cloudflare static-asset response headers.
+# https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# Content-Security-Policy is in Report-Only mode: nothing is blocked, the
+# browser only logs violations to the DevTools console. Once a week of normal
+# use shows no violations (GA4, Clarity, fonts, YouTube/Instagram embeds and
+# the contact form all working), rename the header to Content-Security-Policy
+# to enforce it.
+#
+# The sha256 in script-src is the inline contact-form script shared by 15
+# pages. If that script is edited, recompute the hash (DevTools prints the
+# expected value in the violation message) or the form will stop working once
+# the policy is enforced.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'sha256-ZAMElwb0pFl64T/uMEArJDojDDb6HPG5iFEKPjJWjPE=' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms; media-src 'self'; frame-src https://www.youtube.com https://www.instagram.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'

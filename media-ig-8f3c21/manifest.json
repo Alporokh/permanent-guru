@@ -1,51 +1,8 @@
 {
   "_opis": "Mapa mediow dla n8n. Klucz = numer posta z Notion. Kolejnosc w tablicy = kolejnosc slajdow.",
   "base": "https://permanentguru.com/media-ig-8f3c21/",
-  "updated": "2026-10-05",
+  "updated": "2026-11-07",
   "posts": {
-    "01": [
-      "https://permanentguru.com/media-ig-8f3c21/01/01-1_cennik.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/01/01-2_efekt.jpg"
-    ],
-    "02": [
-      "https://permanentguru.com/media-ig-8f3c21/02/02-1_przed.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/02/02-2_po.jpg"
-    ],
-    "03": [
-      "https://permanentguru.com/media-ig-8f3c21/03/03-1_makro-wloskowa.jpg"
-    ],
-    "04": [
-      "https://permanentguru.com/media-ig-8f3c21/04/04-1_efekt.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/04/04-2_efekt.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/04/04-3_efekt.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/04/04-4_efekt.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/04/04-5_efekt.jpg"
-    ],
-    "05": [
-      "https://permanentguru.com/media-ig-8f3c21/05/05-1_reel.mp4"
-    ],
-    "06": [
-      "https://permanentguru.com/media-ig-8f3c21/06/06-1_w-dniu-zabiegu.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/06/06-2_po-zagojeniu.jpg"
-    ],
-    "07": [
-      "https://permanentguru.com/media-ig-8f3c21/07/07-1_portret-iryny.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/07/07-2_przy-pracy.jpg"
-    ],
-    "08": [
-      "https://permanentguru.com/media-ig-8f3c21/08/08-1_okladka.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/08/08-2_pytanie-ciaza.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/08/08-3_pytanie-hashimoto.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/08/08-4_pytanie-opryszczka.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/08/08-5_pytanie-minusy.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/08/08-6_cta.jpg"
-    ],
-    "09": [
-      "https://permanentguru.com/media-ig-8f3c21/09/09-1_mapowanie-siatka.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/09/09-2_mapowanie-pomiar.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/09/09-3_linijka.jpg",
-      "https://permanentguru.com/media-ig-8f3c21/09/09-4_przy-pracy.jpg"
-    ],
     "10": [
       "https://permanentguru.com/media-ig-8f3c21/10/10-1_cennik.jpg",
       "https://permanentguru.com/media-ig-8f3c21/10/10-2_efekt.jpg",
@@ -159,6 +116,126 @@
       "https://permanentguru.com/media-ig-8f3c21/37/37-6_umiejetnosc.jpg",
       "https://permanentguru.com/media-ig-8f3c21/37/37-7_kiedy-nie.jpg",
       "https://permanentguru.com/media-ig-8f3c21/37/37-8_cta.jpg"
+    ],
+    "39": [
+      "https://permanentguru.com/media-ig-8f3c21/39-tatuaze-launch/39-1-piwonie-z-boku.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/39-tatuaze-launch/39-3-piwonie-z-gory.jpg"
+    ],
+    "40": [
+      "https://permanentguru.com/media-ig-8f3c21/40-usta-reel/lips-permanent.jpg"
+    ],
+    "41": [
+      "https://permanentguru.com/media-ig-8f3c21/41-kobiety-klientka/41-1-klientka-piegi.jpg"
+    ],
+    "42": [
+      "https://permanentguru.com/media-ig-8f3c21/42-cennik-tatuazy/42-1-okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/42-cennik-tatuazy/42-2-cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/42-cennik-tatuazy/42-3-jak-ustalam-cene.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/42-cennik-tatuazy/42-4-mini-biedronka.jpg"
+    ],
+    "43": [
+      "https://permanentguru.com/media-ig-8f3c21/43-napis-tatua%C5%BC/tatuaz-napis-kregoslup/tatuaz-napis-kregoslup_1080x1350.jpg"
+    ],
+    "44": [
+      "https://permanentguru.com/media-ig-8f3c21/44-jak-wyglada-tatuaz/44-1-okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/44-jak-wyglada-tatuaz/44-2-kroki-1-2.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/44-jak-wyglada-tatuaz/44-3-kroki-3-4.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/44-jak-wyglada-tatuaz/44-4-gotowa-praca.jpg"
+    ],
+    "45": [
+      "https://permanentguru.com/media-ig-8f3c21/45-bezpieczenstwo/45-1-okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/45-bezpieczenstwo/45-2-co-robie-ja.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/45-bezpieczenstwo/45-3-co-mozesz-ty.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/45-bezpieczenstwo/45-4-watpliwosci.jpg"
+    ],
+    "46": [
+      "https://permanentguru.com/media-ig-8f3c21/46-bon-mini-tatuaz/46-1-bon.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/46-bon-mini-tatuaz/46-2-mini-fine-line.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/46-bon-mini-tatuaz/46-3-jak-to-dziala.jpg"
+    ],
+    "47": [
+      "https://permanentguru.com/media-ig-8f3c21/47-greetings/swieta_dziekuje_reel.mp4"
+    ],
+    "48": [
+      "https://permanentguru.com/media-ig-8f3c21/48-style-tatuazu/48-tatuaz_line_plecy.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/48-style-tatuazu/48-tatuaz_ornament_dwie_nogi.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/48-style-tatuazu/48-tatuaz_per_aspera_przedramie.jpg"
+    ],
+    "49": [
+      "https://permanentguru.com/media-ig-8f3c21/49-pielegnacja-tatua%C5%BCu/49-pielegnacja-tatuazu-1.png",
+      "https://permanentguru.com/media-ig-8f3c21/49-pielegnacja-tatua%C5%BCu/49-pielegnacja-tatuazu-2.png",
+      "https://permanentguru.com/media-ig-8f3c21/49-pielegnacja-tatua%C5%BCu/49-pielegnacja-tatuazu-3.png",
+      "https://permanentguru.com/media-ig-8f3c21/49-pielegnacja-tatua%C5%BCu/49-pielegnacja-tatuazu-4.png"
+    ],
+    "50": [
+      "https://permanentguru.com/media-ig-8f3c21/50-zima-tatuaz-NEED/50-1-piwonie-ramie.jpg"
+    ],
+    "51": [
+      "https://permanentguru.com/media-ig-8f3c21/51-usta-przed-po-dwa-tygodnie/przed-zabiegem-usta.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/51-usta-przed-po-dwa-tygodnie/odrazu-po-zabiegu.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/51-usta-przed-po-dwa-tygodnie/2-tygodnie-po.jpg"
+    ],
+    "52": [
+      "https://permanentguru.com/media-ig-8f3c21/52-korekta-brwi/przed-korekt%C4%85.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/52-korekta-brwi/po-korektie.MOV"
+    ],
+    "53": [
+      "https://permanentguru.com/media-ig-8f3c21/53-brwi-wloskowa/53-1-PRZED.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/53-brwi-wloskowa/53-3-PO-blizej.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/53-brwi-wloskowa/53-4-makro-swiezo.jpg"
+    ],
+    "54": [
+      "https://permanentguru.com/media-ig-8f3c21/54-usta-roz-czerwien/54-1-delikatny-roz.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/54-usta-roz-czerwien/54-2-klasyczna-czerwien.jpg"
+    ],
+    "55": [
+      "https://permanentguru.com/media-ig-8f3c21/55-kreska-reel/55-1-reel-9x16.mp4"
+    ],
+    "56": [
+      "https://permanentguru.com/media-ig-8f3c21/56-brwi-usta-po-60/56-3-reel-przed-po-9x16.mp4"
+    ],
+    "01": [
+      "https://permanentguru.com/media-ig-8f3c21/01/01-1_cennik.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/01/01-2_efekt.jpg"
+    ],
+    "02": [
+      "https://permanentguru.com/media-ig-8f3c21/02/02-1_przed.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/02/02-2_po.jpg"
+    ],
+    "03": [
+      "https://permanentguru.com/media-ig-8f3c21/03/03-1_makro-wloskowa.jpg"
+    ],
+    "04": [
+      "https://permanentguru.com/media-ig-8f3c21/04/04-1_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-2_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-3_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-4_efekt.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/04/04-5_efekt.jpg"
+    ],
+    "05": [
+      "https://permanentguru.com/media-ig-8f3c21/05/05-1_reel.mp4"
+    ],
+    "06": [
+      "https://permanentguru.com/media-ig-8f3c21/06/06-1_w-dniu-zabiegu.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/06/06-2_po-zagojeniu.jpg"
+    ],
+    "07": [
+      "https://permanentguru.com/media-ig-8f3c21/07/07-1_portret-iryny.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/07/07-2_przy-pracy.jpg"
+    ],
+    "08": [
+      "https://permanentguru.com/media-ig-8f3c21/08/08-1_okladka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-2_pytanie-ciaza.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-3_pytanie-hashimoto.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-4_pytanie-opryszczka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-5_pytanie-minusy.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/08/08-6_cta.jpg"
+    ],
+    "09": [
+      "https://permanentguru.com/media-ig-8f3c21/09/09-1_mapowanie-siatka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-2_mapowanie-pomiar.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-3_linijka.jpg",
+      "https://permanentguru.com/media-ig-8f3c21/09/09-4_przy-pracy.jpg"
     ]
   }
 }

@@ -63,7 +63,11 @@ document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (!link) return;
     const href = link.getAttribute('href');
-    const placement = link.closest('[id]')?.id || 'page';
+    const placement =
+        (link.classList.contains('wa-float') && 'floating_button') ||
+        (link.closest('footer') && 'footer') ||
+        (link.closest('.site-nav, .mobile-nav') && 'nav') ||
+        link.closest('[id]')?.id || 'page';
 
     if (href.startsWith('tel:')) {
         trackEvent('phone_click', { link_placement: placement });
@@ -74,6 +78,8 @@ document.addEventListener('click', (e) => {
         trackEvent('booksy_click', { link_placement: utmContent || placement });
     } else if (link.hostname.endsWith('instagram.com')) {
         trackEvent('instagram_click', { link_placement: placement, link_url: link.href });
+    } else if (link.hostname.endsWith('wa.me') || link.hostname.endsWith('whatsapp.com')) {
+        trackEvent('whatsapp_click', { link_placement: placement, link_url: link.href });
     }
 });
 

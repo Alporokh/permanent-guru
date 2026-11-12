@@ -148,7 +148,16 @@ function clearAnalyticsCookies() {
 function setConsent(choice) {
     try { localStorage.setItem('cookie-consent', choice); } catch {}
     loadAnalytics();
-    gtag('consent', 'update', { analytics_storage: choice === 'accepted' ? 'granted' : 'denied' });
+    // All four Consent Mode v2 signals move together: the banner is a single
+    // accept/reject, so a partial update would leave the ad_* signals stuck on
+    // the denied default and misreport the visitor's actual choice.
+    const state = choice === 'accepted' ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+        ad_storage: state,
+        ad_user_data: state,
+        ad_personalization: state,
+        analytics_storage: state,
+    });
     cookieBanner?.classList.add('cookie-hidden');
 
     if (choice === 'accepted') {

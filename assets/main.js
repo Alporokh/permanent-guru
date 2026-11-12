@@ -1,8 +1,20 @@
-// Consent: GA4 runs in Google Consent Mode v2. Until the visitor accepts
-// cookies, analytics_storage stays denied (no GA cookies are written) and
-// Microsoft Clarity is not loaded at all.
+// Consent: GA4 runs in Google Consent Mode v2. The <head> of every page sets
+// all four signals to denied before anything loads, so no cookie is written
+// until the visitor accepts; Microsoft Clarity is not loaded at all until then.
 function getConsent() {
     try { return localStorage.getItem('cookie-consent'); } catch { return null; }
+}
+
+// One accept/reject moves all four signals together. A partial update would
+// leave the ad_* signals on their denied default and misreport the choice.
+function updateConsent(choice) {
+    const state = choice === 'accepted' ? 'granted' : 'denied';
+    gtag('consent', 'update', {
+        ad_storage: state,
+        ad_user_data: state,
+        ad_personalization: state,
+        analytics_storage: state,
+    });
 }
 
 // Defer Google tag + Microsoft Clarity until idle/interaction — both are heavy
@@ -11,14 +23,17 @@ function loadAnalytics() {
     if (window.__analyticsLoaded) return;
     window.__analyticsLoaded = true;
 
+    // The inline <head> script owns dataLayer, gtag and the denied defaults.
+    // Only fall back to defining them if that script somehow did not run - a
+    // second 'default' call here would override the real one.
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: getConsent() === 'accepted' ? 'granted' : 'denied',
-    });
+    window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+
+    // Replay a choice made on an earlier visit. That visitor never sees the
+    // banner again, so without this their consent would stay denied forever.
+    const stored = getConsent();
+    if (stored) updateConsent(stored);
+
     gtag('js', new Date());
     gtag('config', 'G-0RBEJ7QR9N');
 
@@ -148,16 +163,7 @@ function clearAnalyticsCookies() {
 function setConsent(choice) {
     try { localStorage.setItem('cookie-consent', choice); } catch {}
     loadAnalytics();
-    // All four Consent Mode v2 signals move together: the banner is a single
-    // accept/reject, so a partial update would leave the ad_* signals stuck on
-    // the denied default and misreport the visitor's actual choice.
-    const state = choice === 'accepted' ? 'granted' : 'denied';
-    gtag('consent', 'update', {
-        ad_storage: state,
-        ad_user_data: state,
-        ad_personalization: state,
-        analytics_storage: state,
-    });
+    updateConsent(choice);
     cookieBanner?.classList.add('cookie-hidden');
 
     if (choice === 'accepted') {

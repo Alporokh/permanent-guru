@@ -4,6 +4,23 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Consent Mode v2 defaults. Runs before anything else in the page so
+         no tag can set a cookie first: every signal starts denied and GA4
+         sends only cookieless pings for modelling until the visitor picks.
+         assets/main.js replays a stored choice; wait_for_update holds the
+         tags 500ms so a returning visitor's grant lands before the first
+         hit. Editing this block changes its sha256 in _headers. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500
+        });
+    </script>
     <title>Polityka Prywatności - Permanent Guru Poznań</title>
     <link rel="canonical" href="https://permanentguru.com/polityka-prywatnosci">
     <meta name="description" content="Polityka Prywatności i Klauzula Informacyjna RODO - Permanent Guru Poznań, Iryna Malanyak.">

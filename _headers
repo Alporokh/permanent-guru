@@ -7,14 +7,17 @@
 # the contact form all working), rename the header to Content-Security-Policy
 # to enforce it.
 #
-# The sha256 in script-src is the inline contact-form script shared by 15
-# pages. If that script is edited, recompute the hash (DevTools prints the
-# expected value in the violation message) or the form will stop working once
-# the policy is enforced.
+# script-src carries two sha256 hashes of inline scripts:
+#   ZAMElwb0... the contact-form script shared by 15 pages
+#   xKRlMBpu... the Consent Mode defaults in the <head> of all 21 pages
+# Editing either script changes its hash. Recompute it (DevTools prints the
+# expected value in the violation message) or that script stops running once
+# the policy is enforced - for the consent block that would mean GA4 falling
+# back to granted-by-default, so treat it as a release blocker.
 
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'sha256-ZAMElwb0pFl64T/uMEArJDojDDb6HPG5iFEKPjJWjPE=' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms; media-src 'self'; frame-src https://www.youtube.com https://www.instagram.com https://www.google.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'sha256-ZAMElwb0pFl64T/uMEArJDojDDb6HPG5iFEKPjJWjPE=' 'sha256-xKRlMBpuOSaN3yQN/d+/1odYTvuGqnXi+EVxMmPypi4=' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://pagead2.googlesyndication.com https://*.clarity.ms; media-src 'self'; frame-src https://www.youtube.com https://www.instagram.com https://www.google.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'

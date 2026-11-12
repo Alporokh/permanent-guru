@@ -63,10 +63,17 @@ document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (!link) return;
     const href = link.getAttribute('href');
+    // Where on the page the link sits. Checked from most specific outwards,
+    // so the same number in the header, the closing strip and the contact
+    // card can be told apart in GA4 rather than all reporting "page".
     const placement =
         (link.classList.contains('wa-float') && 'floating_button') ||
         (link.closest('footer') && 'footer') ||
-        (link.closest('.site-nav, .mobile-nav') && 'nav') ||
+        (link.closest('.mobile-nav') && 'mobile_nav') ||
+        (link.closest('.site-nav') && 'nav') ||
+        (link.closest('.cta-strip') && 'cta_strip') ||
+        (link.closest('.hero, .page-hero') && 'hero') ||
+        (link.closest('.contact-grid') && 'contact_card') ||
         link.closest('[id]')?.id || 'page';
 
     if (href.startsWith('tel:')) {

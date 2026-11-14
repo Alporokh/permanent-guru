@@ -50,21 +50,6 @@ body.tattoo-page {
     --flower-opacity: 0.07;
 }
 
-/* This motif is thin line art, not a solid silhouette. Masking the dust to it
-   would clip almost every pixel away, so the field gets a soft oval instead
-   and the pixels settle around the drawing rather than on its lines. */
-/* This page redefines --magenta as near-black, and black dots read far
-   heavier on cream than the brand magenta does, so the lattice needs pulling
-   back to sit at the same visual weight. */
-.tattoo-page .px-grid {
-    opacity: 0.2;
-}
-
-.tattoo-page .px-field {
-    -webkit-mask-image: radial-gradient(ellipse 42% 58% at 50% 50%, #000 35%, transparent 100%);
-    mask-image: radial-gradient(ellipse 42% 58% at 50% 50%, #000 35%, transparent 100%);
-}
-
 .tattoo-page .site-nav {
     background: rgba(255, 255, 255, 0.94);
 }

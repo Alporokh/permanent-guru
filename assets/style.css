@@ -2780,3 +2780,42 @@ footer .brand-block p a {
         letter-spacing: 0.06em;
     }
 }
+
+/* -------- Whole-card click targets -------- */
+/* The stretched pseudo-element turns the card into one click surface while
+   the link stays a real link: keyboard focus, middle-click and the status
+   bar preview all keep working, which a click handler on the article would
+   have thrown away. .svc-card is already position:relative, which is what
+   the inset:0 resolves against. */
+.svc-card .card-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* On cennik the card books the treatment while the title still goes to the
+   service page, so that title has to sit above the card surface. On zabiegi
+   the title IS the card link, and must stay unpositioned or its own ::after
+   would stretch over the title rather than the card. */
+.svc-card h3 a:not(.card-link) {
+    position: relative;
+    z-index: 2;
+}
+
+.svc-card .body .card-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    text-decoration: none;
+}
+
+.svc-card:hover .body .card-link {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

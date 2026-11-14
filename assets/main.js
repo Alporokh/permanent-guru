@@ -703,3 +703,23 @@ function certificateRows() {
 }
 
 certificateRows();
+
+// A card on the price list books the treatment it shows: the form's dropdown
+// arrives already set to whatever was clicked, so nobody has to find it in a
+// list of fifteen. The link still works without this - it just lands on the
+// form with nothing chosen.
+function prefillService() {
+    const select = document.getElementById('service');
+    if (!select) return;
+
+    document.querySelectorAll('[data-service]').forEach(link => {
+        link.addEventListener('click', () => {
+            const wanted = link.getAttribute('data-service');
+            if (!select.querySelector('option[value="' + wanted + '"]')) return;
+            select.value = wanted;
+            select.dispatchEvent(new Event('change', { bubbles: true }));
+        });
+    });
+}
+
+prefillService();

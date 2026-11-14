@@ -1545,6 +1545,27 @@ footer .meta {
     position: relative;
 }
 
+/* The tattoo teaser is black and white like the gallery on /tatuaz-poznan, so
+   the two pages read as one story. Same filter as .tattoo-page .gallery img.
+   It does NOT reveal colour on hover the way the gallery does: hovering here
+   stirs the magenta ink instead, and two colour effects at once just fight.
+   The ink is the only colour the photo gets. */
+#tatuaz .image img {
+    filter: grayscale(100%) contrast(1.05);
+}
+
+/* Canvas for assets/ink.js. It sits inside .placeholder so the photo's border
+   still shows and overflow:hidden clips the ink. Never takes pointer events -
+   the hover that reveals the photo's colour has to reach .image. */
+#tatuaz .ink {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+}
+
 .feature-row h2 em {
     font-style: normal;
     color: var(--magenta);

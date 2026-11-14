@@ -310,7 +310,7 @@
             <div class="container">
                 <div class="feature-row">
                     <div class="image">
-                        <div class="placeholder" style="position:absolute;inset:0">
+                        <div class="placeholder" data-ink style="position:absolute;inset:0">
                             <img loading="lazy" src="images/tatuaz-kwiaty-ramie-poznan.webp" width="900" height="1200"
                                 alt="Tatuaż kwiaty na ramieniu - Poznań · Iryna Malaniak"
                                 style="width:100%;height:100%;object-fit:cover;display:block">
@@ -762,6 +762,9 @@
     </a>
 
     <script src="assets/main.js"></script>
+    <!-- Ink fluid over the tattoo photo. Home page only, and it builds no
+         WebGL context until the pointer actually reaches the photo. -->
+    <script src="assets/ink.js" defer></script>
     <script>
         const form = document.getElementById('contact-form');
         const successMsg = document.getElementById('form-success');

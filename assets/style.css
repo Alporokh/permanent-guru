@@ -2316,12 +2316,16 @@ footer .brand-block p a {
 
    The SVG scales with the viewport rather than cropping, which keeps the band,
    the type and the wave in the same proportion at every width. */
-.ribbon {
+/* .ribbon-divider, not .ribbon: cennik and zabiegi already use a bare .ribbon
+   for the "Bestseller" and "Bezplatna" badges on service cards. A bare .ribbon
+   rule here set line-height:0 on those badges, since .svc-card .ribbon sets
+   neither line-height nor overflow and so could not win them back. */
+.ribbon-divider {
     overflow: hidden;
     line-height: 0;
 }
 
-.ribbon svg {
+.ribbon-divider svg {
     display: block;
     width: 100%;
     height: auto;

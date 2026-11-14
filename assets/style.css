@@ -109,9 +109,17 @@ body {
     --flower-opacity: 0.045;
 }
 
-/* Twinkling pixel dust. assets/main.js builds the field and the pixels; the
-   mask is what makes it work - it clips every pixel to the petal silhouette,
-   so the dust describes the flower instead of scattering over the page. */
+/* Chroma current - currents of light flowing across a grid of glowing dots.
+   assets/main.js builds the three nested layers, because none of this can be
+   done with pseudo-elements: ::before is already the flower motif, and a
+   pseudo-element cannot hold the moving bands.
+
+   The order of the two masks is the whole trick. .px-field clips to the petal
+   silhouette. .px-grid is masked to a lattice of soft dots and holds still;
+   the light bands move underneath it. Masking the dots onto the STATIC parent
+   rather than onto the moving band is what makes a current appear to travel
+   across a grid - mask the band instead and you get a stripe sliding over a
+   field of dots, which reads completely differently. */
 .px-field {
     position: absolute;
     inset: 0;
@@ -125,40 +133,112 @@ body {
     mask-position: center;
 }
 
-.px-field i {
+/* The lattice. A hard core with a soft halo is what gives each dot its glow -
+   a plain hard-edged circle reads as a printed dot, not a light. */
+.px-grid {
     position: absolute;
-    display: block;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.36;
+    -webkit-mask-image: radial-gradient(circle,
+            rgba(0, 0, 0, 1) 0,
+            rgba(0, 0, 0, 1) 1.6px,
+            rgba(0, 0, 0, 0.5) 3.2px,
+            rgba(0, 0, 0, 0) 6px);
+    mask-image: radial-gradient(circle,
+            rgba(0, 0, 0, 1) 0,
+            rgba(0, 0, 0, 1) 1.6px,
+            rgba(0, 0, 0, 0.5) 3.2px,
+            rgba(0, 0, 0, 0) 6px);
+    -webkit-mask-size: 22px 22px;
+    mask-size: 22px 22px;
+}
+
+/* The grid itself, always faintly lit, so there is something for the
+   currents to flow ACROSS. Masked by .px-grid's lattice like everything else
+   inside it. */
+.px-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background: var(--magenta);
-    opacity: 0;
-    animation: px-twinkle var(--px-dur) ease-in-out var(--px-delay) infinite;
+    opacity: 0.3;
 }
 
-/* Each pixel is dark for about two thirds of its cycle. A symmetrical pulse
-   leaves most of the field lit at any instant, which reads as a haze rather
-   than as twinkling. */
-@keyframes px-twinkle {
-    0% {
-        opacity: 0;
-        transform: scale(0.4);
+/* A band of solid brand colour, shaped by its own mask rather than by a
+   gradient of colour stops: fading var(--magenta) to `transparent` runs the
+   interpolation through rgba(0,0,0,0) and greys the edges, and the tattoo page
+   redefines --magenta, so the colour has to stay a token. */
+/* Sized to the minimum that still clears the box at the steepest angle these
+   bands use (37deg needs about 140% of the diagonal). These are fixed-position
+   animated layers living on all 21 pages, so the area is worth being mean
+   about - every extra percent is composited memory on every page. */
+.px-current {
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 130%;
+    height: 160%;
+    background: var(--magenta);
+    -webkit-mask-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 37%,
+            rgba(0, 0, 0, 0.5) 46%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0.5) 54%,
+            rgba(0, 0, 0, 0) 63%);
+    mask-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 37%,
+            rgba(0, 0, 0, 0.5) 46%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0.5) 54%,
+            rgba(0, 0, 0, 0) 63%);
+    animation: px-flow var(--flow-dur) linear calc(var(--flow-delay) - var(--flow-offset, 0s)) infinite;
+}
+
+/* The rotation sits outside the translation, so each band travels along its
+   own axis - across its length, not along it. */
+@keyframes px-flow {
+    from {
+        transform: rotate(var(--flow-angle)) translateX(-100%);
     }
 
-    15% {
-        opacity: var(--px-peak);
-        transform: scale(1);
-    }
-
-    35%, 100% {
-        opacity: 0;
-        transform: scale(0.4);
+    to {
+        transform: rotate(var(--flow-angle)) translateX(100%);
     }
 }
 
-/* Reduced motion keeps the dusting, drops the blinking. */
+.px-current.c1 {
+    --flow-angle: -16deg;
+    --flow-dur: 7.5s;
+    --flow-delay: -1.2s;
+}
+
+.px-current.c2 {
+    --flow-angle: 11deg;
+    --flow-dur: 11s;
+    --flow-delay: -5.4s;
+}
+
+.px-current.c3 {
+    --flow-angle: -37deg;
+    --flow-dur: 15.5s;
+    --flow-delay: -9.1s;
+}
+
+.px-current.c4 {
+    --flow-angle: 28deg;
+    --flow-dur: 9.3s;
+    --flow-delay: -6.6s;
+}
+
+/* Reduced motion keeps the glowing lattice and drops the currents. */
 @media (prefers-reduced-motion: reduce) {
-    .px-field i {
-        animation: none;
-        transform: none;
-        opacity: calc(var(--px-peak) * 0.55);
+    .px-current {
+        display: none;
+    }
+
+    .px-grid::before {
+        opacity: 0.42;
     }
 }
 

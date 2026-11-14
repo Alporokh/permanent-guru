@@ -2309,26 +2309,17 @@ footer .brand-block p a {
 }
 
 /* -------- Portfolio: snapshot trail -------- */
-/* Dark band so the prints read like photographs on a table, as the reference
-   does. One line to put it back on white if that turns out too heavy. */
-.trail-section {
-    background: var(--ink);
-}
-
-.trail-section .eyebrow {
-    color: var(--magenta-soft);
-}
-
-.trail-section h2,
-.trail-section h2 em {
-    color: #FFFFFF;
-}
-
+/* The band lives inside the white "Subtelny efekt" section, where the static
+   grid used to be, so it carries its own dark ground rather than tinting a
+   whole section. Dark so the prints read like photographs on a table, the way
+   the reference does - one line to put it back on white. */
 .snapshot-trail {
     position: relative;
     margin-top: 48px;
     height: clamp(340px, 40vw, 540px);
     overflow: hidden;
+    background: var(--ink);
+    border-radius: 2px;
 }
 
 /* The photos in the markup are a real, resting pile: they load normally, keep

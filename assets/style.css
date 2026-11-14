@@ -62,26 +62,35 @@ body {
 /* -------- Background flower motif -------- */
 /* A still watermark - three fixed layers behind the page, a few percent
    opaque. The motif sits on ::before rather than on the element itself, which
-   is why each variant sets --flower-opacity rather than opacity. */
+   is why each variant sets --flower-opacity rather than opacity.
+
+   The drawing is a MASK, not a background image, so its colour comes from
+   var(--magenta). That is what lets one file serve the whole site: brand
+   magenta on the ordinary pages, and near-black on the tattoo page, which
+   redefines that token. A background-image could not be recoloured. */
 .bg-flower {
     position: fixed;
     pointer-events: none;
     z-index: 0;
     width: 900px;
     height: 900px;
-    --flower-opacity: 0.07;
+    --flower-opacity: 0.16;
 }
 
 .bg-flower::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url('flower.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+    background: var(--magenta);
+    -webkit-mask-image: url('tattoo-flower.png');
+    mask-image: url('tattoo-flower.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
     opacity: var(--flower-opacity);
-    filter: blur(0.5px);
 }
 
 .bg-flower.tr {
@@ -96,7 +105,7 @@ body {
     transform: rotate(-30deg);
     width: 1100px;
     height: 1100px;
-    --flower-opacity: 0.05;
+    --flower-opacity: 0.13;
 }
 
 .bg-flower.mr {
@@ -105,7 +114,7 @@ body {
     transform: translateY(-50%) rotate(8deg);
     width: 760px;
     height: 760px;
-    --flower-opacity: 0.045;
+    --flower-opacity: 0.12;
 }
 
 /* explicit stacking order for the three landmarks */
@@ -2298,3 +2307,40 @@ footer .brand-block p a {
         transition: none;
     }
 }
+
+/* -------- Ribbon divider -------- */
+/* A band of brand colour with the studio name running along it, used to break
+   the page before "Kym jestem". The wave is one path, drawn once as a thick
+   stroke and reused as the baseline for the text, so the letters sit on the
+   curve instead of being placed by hand.
+
+   The SVG scales with the viewport rather than cropping, which keeps the band,
+   the type and the wave in the same proportion at every width. */
+.ribbon {
+    overflow: hidden;
+    line-height: 0;
+}
+
+.ribbon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ribbon-band {
+    fill: none;
+    stroke: var(--magenta);
+    stroke-width: 62;
+}
+
+.ribbon-text {
+    fill: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+}
+
+/* The scroll is SMIL, not CSS: Chrome reports no computed value for
+   startOffset, so a CSS keyframe on it registers and then does nothing.
+   assets/main.js sets the loop distance and honours reduced motion. */

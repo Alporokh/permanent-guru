@@ -193,3 +193,39 @@ document.addEventListener('click', (e) => {
     cookieBanner.style.display = '';
     cookieBanner.classList.remove('cookie-hidden');
 });
+
+// The ribbon's text scrolls along its curve with SMIL, because CSS cannot
+// animate startOffset. Two things have to happen here rather than in CSS.
+//
+// First the loop distance. It has to be exactly one repeat of the string, or
+// the wrap shows a seam, and that length depends on the font that actually
+// rendered - so it is measured rather than hard-coded, after the webfont has
+// settled. Second, SMIL ignores CSS, so reduced motion is honoured by pausing
+// the document's animations outright.
+function tuneRibbon() {
+    const text = document.querySelector('.ribbon-text');
+    const run = document.getElementById('ribbon-run');
+    if (!text || !run) return;
+
+    const svg = text.ownerSVGElement;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        svg.pauseAnimations();
+        return;
+    }
+
+    const repeats = 6; // keep in step with the string built into index.html
+    const measure = () => {
+        const one = text.getComputedTextLength() / repeats;
+        if (!one) return;
+        run.setAttribute('to', (-one).toFixed(2));
+        svg.setCurrentTime(0);
+    };
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measure);
+    } else {
+        measure();
+    }
+}
+
+tuneRibbon();

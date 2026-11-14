@@ -216,6 +216,7 @@ function snapshotTrail() {
         let lastX = null;
         let lastY = null;
         let travelled = 0;
+        let lastPointerAt = -Infinity;
 
         const spread = amount => ((Math.random() * 2) - 1) * amount;
 
@@ -255,6 +256,7 @@ function snapshotTrail() {
             const x = event.clientX - box.left;
             const y = event.clientY - box.top;
 
+            lastPointerAt = event.timeStamp;
             if (lastX !== null) travelled += Math.hypot(x - lastX, y - lastY);
             lastX = x;
             lastY = y;
@@ -271,6 +273,56 @@ function snapshotTrail() {
             lastY = null;
             travelled = 0;
         });
+
+        // A finger has no hover, so on a touch screen the scroll itself drives
+        // the trail: prints drop as the band travels through the viewport, and
+        // where they land follows how far through it has got. Costs nothing
+        // when the page is still, and nothing at all while the band is off
+        // screen.
+        const SCROLL_STEP = 68;
+        let onScreen = false;
+        let lastScrollY = window.scrollY;
+        let scrolled = 0;
+        let queued = false;
+
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(entries => {
+                onScreen = entries.some(entry => entry.isIntersecting);
+            }).observe(area);
+        } else {
+            onScreen = true;
+        }
+
+        window.addEventListener('scroll', () => {
+            const dy = Math.abs(window.scrollY - lastScrollY);
+            lastScrollY = window.scrollY;
+            if (!onScreen || queued) return;
+
+            // While a real cursor is working the band, let it have the floor -
+            // otherwise a scroll with the mouse over it spawns from both.
+            if (performance.now() - lastPointerAt < 500) return;
+
+            scrolled += dy;
+            if (scrolled < SCROLL_STEP) return;
+            scrolled = 0;
+
+            // One rect read per frame, after the scroll has settled.
+            queued = true;
+            requestAnimationFrame(() => {
+                queued = false;
+                const box = area.getBoundingClientRect();
+                if (!box.height) return;
+
+                // 0 as the band enters from the bottom, 1 as it leaves the top.
+                const through = 1 - (box.top + box.height) / (window.innerHeight + box.height);
+                const wander = Math.sin(through * Math.PI * 2.4);
+                const drift = Math.sin(through * Math.PI * 3.7 + 1.1);
+
+                area.classList.add('is-live');
+                drop(box.width * (0.5 + 0.34 * wander),
+                     box.height * (0.5 + 0.22 * drift));
+            });
+        }, { passive: true });
     });
 }
 

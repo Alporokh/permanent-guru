@@ -194,38 +194,84 @@ document.addEventListener('click', (e) => {
     cookieBanner.classList.remove('cookie-hidden');
 });
 
-// The ribbon's text scrolls along its curve with SMIL, because CSS cannot
-// animate startOffset. Two things have to happen here rather than in CSS.
+// Snapshot trail: a cursor trail of photographs across the portfolio band.
+// Each print is thrown in at an angle, overshoots, settles flat, then fades.
 //
-// First the loop distance. It has to be exactly one repeat of the string, or
-// the wrap shows a seam, and that length depends on the font that actually
-// rendered - so it is measured rather than hard-coded, after the webfont has
-// settled. Second, SMIL ignores CSS, so reduced motion is honoured by pausing
-// the document's animations outright.
-function tuneRibbon() {
-    const text = document.querySelector('.ribbon-text');
-    const run = document.getElementById('ribbon-run');
-    if (!text || !run) return;
+// The prints reuse the files already in the markup, so nothing extra is
+// fetched, and the resting pile underneath is what a phone or a visitor
+// without JS sees - this is only an enhancement on top of it.
+function snapshotTrail() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const svg = text.ownerSVGElement;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        svg.pauseAnimations();
-        return;
-    }
+    document.querySelectorAll('[data-snapshot-trail]').forEach(area => {
+        const sources = Array.from(area.querySelectorAll('.trail-source img'));
+        if (!sources.length) return;
 
-    const repeats = 6; // keep in step with the string built into index.html
-    const measure = () => {
-        const one = text.getComputedTextLength() / repeats;
-        if (!one) return;
-        run.setAttribute('to', (-one).toFixed(2));
-        svg.setCurrentTime(0);
-    };
+        // Spawn by distance travelled rather than per event: a mouse fires
+        // hundreds of moves a second, and one print each would bury the band.
+        const STEP = 94;
+        const MAX_LIVE = 9;
+        const live = [];
+        let next = 0;
+        let lastX = null;
+        let lastY = null;
+        let travelled = 0;
 
-    if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(measure);
-    } else {
-        measure();
-    }
+        const spread = amount => ((Math.random() * 2) - 1) * amount;
+
+        function drop(x, y) {
+            const source = sources[next % sources.length];
+            next += 1;
+
+            const print = document.createElement('div');
+            print.className = 'trail-print';
+            print.style.left = x + 'px';
+            print.style.top = y + 'px';
+            print.style.setProperty('--r', spread(12).toFixed(2) + 'deg');
+            print.style.setProperty('--r0', spread(26).toFixed(2) + 'deg');
+            print.style.setProperty('--r1', spread(7).toFixed(2) + 'deg');
+
+            const img = document.createElement('img');
+            img.src = source.currentSrc || source.src;
+            img.alt = '';
+            img.setAttribute('aria-hidden', 'true');
+            print.appendChild(img);
+
+            area.appendChild(print);
+            live.push(print);
+            while (live.length > MAX_LIVE) live.shift().remove();
+
+            print.addEventListener('animationend', () => {
+                const at = live.indexOf(print);
+                if (at > -1) live.splice(at, 1);
+                print.remove();
+            });
+        }
+
+        area.addEventListener('pointermove', event => {
+            if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+
+            const box = area.getBoundingClientRect();
+            const x = event.clientX - box.left;
+            const y = event.clientY - box.top;
+
+            if (lastX !== null) travelled += Math.hypot(x - lastX, y - lastY);
+            lastX = x;
+            lastY = y;
+
+            if (travelled < STEP) return;
+            travelled = 0;
+            area.classList.add('is-live');
+            drop(x, y);
+        });
+
+        // Re-entering elsewhere should not count the jump as travel.
+        area.addEventListener('pointerleave', () => {
+            lastX = null;
+            lastY = null;
+            travelled = 0;
+        });
+    });
 }
 
-tuneRibbon();
+snapshotTrail();

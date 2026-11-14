@@ -2308,43 +2308,176 @@ footer .brand-block p a {
     }
 }
 
-/* -------- Ribbon divider -------- */
-/* A band of brand colour with the studio name running along it, used to break
-   the page before "Kym jestem". The wave is one path, drawn once as a thick
-   stroke and reused as the baseline for the text, so the letters sit on the
-   curve instead of being placed by hand.
-
-   The SVG scales with the viewport rather than cropping, which keeps the band,
-   the type and the wave in the same proportion at every width. */
-/* .ribbon-divider, not .ribbon: cennik and zabiegi already use a bare .ribbon
-   for the "Bestseller" and "Bezplatna" badges on service cards. A bare .ribbon
-   rule here set line-height:0 on those badges, since .svc-card .ribbon sets
-   neither line-height nor overflow and so could not win them back. */
-.ribbon-divider {
-    overflow: hidden;
-    line-height: 0;
+/* -------- Portfolio: snapshot trail -------- */
+/* Dark band so the prints read like photographs on a table, as the reference
+   does. One line to put it back on white if that turns out too heavy. */
+.trail-section {
+    background: var(--ink);
 }
 
-.ribbon-divider svg {
+.trail-section .eyebrow {
+    color: var(--magenta-soft);
+}
+
+.trail-section h2,
+.trail-section h2 em {
+    color: #FFFFFF;
+}
+
+.snapshot-trail {
+    position: relative;
+    margin-top: 48px;
+    height: clamp(340px, 40vw, 540px);
+    overflow: hidden;
+}
+
+/* The photos in the markup are a real, resting pile: they load normally, keep
+   their alt text, and are what a phone or a visitor without JS sees. The
+   cursor trail is drawn on top of them and reuses the same files. */
+.trail-source {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trail-source li {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: clamp(116px, 14vw, 208px);
+    margin: 0;
+}
+
+.trail-source img,
+.trail-print img {
     display: block;
     width: 100%;
-    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.ribbon-band {
-    fill: none;
-    stroke: var(--magenta);
-    stroke-width: 62;
+.trail-source li,
+.trail-print {
+    filter: drop-shadow(0 26px 40px rgba(0, 0, 0, 0.55));
 }
 
-.ribbon-text {
-    fill: #FFFFFF;
-    font-family: var(--font-body);
-    font-size: 34px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+/* A fanned stack, leaning like dropped prints. */
+.trail-source li:nth-child(1) {
+    transform: translate(-50%, -50%) translate(-168px, 14px) rotate(-11deg);
 }
 
-/* The scroll is SMIL, not CSS: Chrome reports no computed value for
-   startOffset, so a CSS keyframe on it registers and then does nothing.
-   assets/main.js sets the loop distance and honours reduced motion. */
+.trail-source li:nth-child(2) {
+    transform: translate(-50%, -50%) translate(-86px, -28px) rotate(-4deg);
+}
+
+.trail-source li:nth-child(3) {
+    transform: translate(-50%, -50%) translate(4px, 22px) rotate(6deg);
+}
+
+.trail-source li:nth-child(4) {
+    transform: translate(-50%, -50%) translate(92px, -18px) rotate(-7deg);
+}
+
+.trail-source li:nth-child(5) {
+    transform: translate(-50%, -50%) translate(178px, 24px) rotate(10deg);
+}
+
+.trail-source li:nth-child(6) {
+    transform: translate(-50%, -50%) translate(262px, -10px) rotate(3deg);
+}
+
+/* Anything past the sixth is trail-only, so extra photos do not crowd the
+   pile - they still appear in the trail. */
+.trail-source li:nth-child(n+7) {
+    display: none;
+}
+
+.trail-print {
+    position: absolute;
+    width: clamp(116px, 14vw, 208px);
+    pointer-events: none;
+    will-change: transform, opacity;
+    animation: print-settle 1900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Thrown in at an angle, overshooting slightly, then settling flat. The
+   overshoot at 18% is what makes it read as tossed rather than faded in. */
+@keyframes print-settle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) rotate(var(--r0)) scale(0.82);
+    }
+
+    18% {
+        opacity: 1;
+        transform: translate(-50%, -54%) rotate(var(--r1)) scale(1.05);
+    }
+
+    40% {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(var(--r)) scale(1);
+    }
+
+    72% {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(var(--r)) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -44%) rotate(var(--r)) scale(0.97);
+    }
+}
+
+.trail-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.snapshot-trail.is-live .trail-hint {
+    opacity: 0;
+}
+
+@media (hover: none) {
+    .trail-hint {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .trail-source li:nth-child(1) {
+        transform: translate(-50%, -50%) translate(-82px, 10px) rotate(-10deg);
+    }
+
+    .trail-source li:nth-child(2) {
+        transform: translate(-50%, -50%) translate(-28px, -22px) rotate(-3deg);
+    }
+
+    .trail-source li:nth-child(3) {
+        transform: translate(-50%, -50%) translate(28px, 18px) rotate(6deg);
+    }
+
+    .trail-source li:nth-child(4) {
+        transform: translate(-50%, -50%) translate(84px, -14px) rotate(-6deg);
+    }
+
+    .trail-source li:nth-child(n+5) {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trail-print {
+        display: none;
+    }
+}

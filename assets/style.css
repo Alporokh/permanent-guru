@@ -59,6 +59,189 @@ body {
     min-height: 100vh;
 }
 
+/* -------- Background flower motif -------- */
+/* The motif sits on ::before rather than on the element so the twinkle layer
+   can carry its own opacity. Fading the whole element to 7% would take the
+   pixels down with it and nothing would ever be bright enough to read as a
+   sparkle. Each variant now sets --flower-opacity instead of opacity. */
+.bg-flower {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    width: 900px;
+    height: 900px;
+    --flower-opacity: 0.07;
+}
+
+.bg-flower::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('flower.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: var(--flower-opacity);
+    filter: blur(0.5px);
+}
+
+.bg-flower.tr {
+    top: -260px;
+    right: -260px;
+    transform: rotate(20deg);
+}
+
+.bg-flower.bl {
+    bottom: -260px;
+    left: -300px;
+    transform: rotate(-30deg);
+    width: 1100px;
+    height: 1100px;
+    --flower-opacity: 0.05;
+}
+
+.bg-flower.mr {
+    top: 50%;
+    right: -380px;
+    transform: translateY(-50%) rotate(8deg);
+    width: 760px;
+    height: 760px;
+    --flower-opacity: 0.045;
+}
+
+/* Chroma current - currents of light flowing across a grid of glowing dots.
+   assets/main.js builds the three nested layers, because none of this can be
+   done with pseudo-elements: ::before is already the flower motif, and a
+   pseudo-element cannot hold the moving bands.
+
+   The order of the two masks is the whole trick. .px-field clips to the petal
+   silhouette. .px-grid is masked to a lattice of soft dots and holds still;
+   the light bands move underneath it. Masking the dots onto the STATIC parent
+   rather than onto the moving band is what makes a current appear to travel
+   across a grid - mask the band instead and you get a stripe sliding over a
+   field of dots, which reads completely differently. */
+.px-field {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: url('flower.svg');
+    mask-image: url('flower.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* The lattice. A hard core with a soft halo is what gives each dot its glow -
+   a plain hard-edged circle reads as a printed dot, not a light. */
+.px-grid {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0.36;
+    -webkit-mask-image: radial-gradient(circle,
+            rgba(0, 0, 0, 1) 0,
+            rgba(0, 0, 0, 1) 1.6px,
+            rgba(0, 0, 0, 0.5) 3.2px,
+            rgba(0, 0, 0, 0) 6px);
+    mask-image: radial-gradient(circle,
+            rgba(0, 0, 0, 1) 0,
+            rgba(0, 0, 0, 1) 1.6px,
+            rgba(0, 0, 0, 0.5) 3.2px,
+            rgba(0, 0, 0, 0) 6px);
+    -webkit-mask-size: 22px 22px;
+    mask-size: 22px 22px;
+}
+
+/* The grid itself, always faintly lit, so there is something for the
+   currents to flow ACROSS. Masked by .px-grid's lattice like everything else
+   inside it. */
+.px-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--magenta);
+    opacity: 0.3;
+}
+
+/* A band of solid brand colour, shaped by its own mask rather than by a
+   gradient of colour stops: fading var(--magenta) to `transparent` runs the
+   interpolation through rgba(0,0,0,0) and greys the edges, and the tattoo page
+   redefines --magenta, so the colour has to stay a token. */
+/* Sized to the minimum that still clears the box at the steepest angle these
+   bands use (37deg needs about 140% of the diagonal). These are fixed-position
+   animated layers living on all 21 pages, so the area is worth being mean
+   about - every extra percent is composited memory on every page. */
+.px-current {
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 130%;
+    height: 160%;
+    background: var(--magenta);
+    -webkit-mask-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 37%,
+            rgba(0, 0, 0, 0.5) 46%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0.5) 54%,
+            rgba(0, 0, 0, 0) 63%);
+    mask-image: linear-gradient(90deg,
+            rgba(0, 0, 0, 0) 37%,
+            rgba(0, 0, 0, 0.5) 46%,
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0.5) 54%,
+            rgba(0, 0, 0, 0) 63%);
+    animation: px-flow var(--flow-dur) linear calc(var(--flow-delay) - var(--flow-offset, 0s)) infinite;
+}
+
+/* The rotation sits outside the translation, so each band travels along its
+   own axis - across its length, not along it. */
+@keyframes px-flow {
+    from {
+        transform: rotate(var(--flow-angle)) translateX(-100%);
+    }
+
+    to {
+        transform: rotate(var(--flow-angle)) translateX(100%);
+    }
+}
+
+.px-current.c1 {
+    --flow-angle: -16deg;
+    --flow-dur: 7.5s;
+    --flow-delay: -1.2s;
+}
+
+.px-current.c2 {
+    --flow-angle: 11deg;
+    --flow-dur: 11s;
+    --flow-delay: -5.4s;
+}
+
+.px-current.c3 {
+    --flow-angle: -37deg;
+    --flow-dur: 15.5s;
+    --flow-delay: -9.1s;
+}
+
+.px-current.c4 {
+    --flow-angle: 28deg;
+    --flow-dur: 9.3s;
+    --flow-delay: -6.6s;
+}
+
+/* Reduced motion keeps the glowing lattice and drops the currents. */
+@media (prefers-reduced-motion: reduce) {
+    .px-current {
+        display: none;
+    }
+
+    .px-grid::before {
+        opacity: 0.42;
+    }
+}
+
 /* explicit stacking order for the three landmarks */
 header,
 main,

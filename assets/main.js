@@ -193,3 +193,33 @@ document.addEventListener('click', (e) => {
     cookieBanner.style.display = '';
     cookieBanner.classList.remove('cookie-hidden');
 });
+
+// Chroma current over the background flowers: currents of light flowing across
+// a grid of glowing dots. Built here rather than in markup so one change
+// reaches all 21 pages, and because ::before is already the flower motif.
+//
+// Five elements per flower, where the twinkling version needed sixty-four: the
+// dots are a mask in style.css now, not elements, so density costs nothing.
+function seedFlowerCurrents() {
+    document.querySelectorAll('.bg-flower').forEach((flower, index) => {
+        const field = document.createElement('div');
+        field.className = 'px-field';
+        // Shifts the whole animation set per flower, so the three on a page do
+        // not pulse in lockstep.
+        field.style.setProperty('--flow-offset', (index * 2.7).toFixed(1) + 's');
+
+        const grid = document.createElement('div');
+        grid.className = 'px-grid';
+
+        ['c1', 'c2', 'c3', 'c4'].forEach(name => {
+            const current = document.createElement('i');
+            current.className = 'px-current ' + name;
+            grid.appendChild(current);
+        });
+
+        field.appendChild(grid);
+        flower.appendChild(field);
+    });
+}
+
+seedFlowerCurrents();

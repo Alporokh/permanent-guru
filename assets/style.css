@@ -60,17 +60,28 @@ body {
 }
 
 /* -------- Background flower motif -------- */
+/* The motif sits on ::before rather than on the element so the twinkle layer
+   can carry its own opacity. Fading the whole element to 7% would take the
+   pixels down with it and nothing would ever be bright enough to read as a
+   sparkle. Each variant now sets --flower-opacity instead of opacity. */
 .bg-flower {
     position: fixed;
     pointer-events: none;
     z-index: 0;
     width: 900px;
     height: 900px;
+    --flower-opacity: 0.07;
+}
+
+.bg-flower::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     background-image: url('flower.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    opacity: 0.07;
+    opacity: var(--flower-opacity);
     filter: blur(0.5px);
 }
 
@@ -86,7 +97,7 @@ body {
     transform: rotate(-30deg);
     width: 1100px;
     height: 1100px;
-    opacity: 0.05;
+    --flower-opacity: 0.05;
 }
 
 .bg-flower.mr {
@@ -95,7 +106,60 @@ body {
     transform: translateY(-50%) rotate(8deg);
     width: 760px;
     height: 760px;
-    opacity: 0.045;
+    --flower-opacity: 0.045;
+}
+
+/* Twinkling pixel dust. assets/main.js builds the field and the pixels; the
+   mask is what makes it work - it clips every pixel to the petal silhouette,
+   so the dust describes the flower instead of scattering over the page. */
+.px-field {
+    position: absolute;
+    inset: 0;
+    -webkit-mask-image: url('flower.svg');
+    mask-image: url('flower.svg');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+.px-field i {
+    position: absolute;
+    display: block;
+    background: var(--magenta);
+    opacity: 0;
+    animation: px-twinkle var(--px-dur) ease-in-out var(--px-delay) infinite;
+}
+
+/* Each pixel is dark for about two thirds of its cycle. A symmetrical pulse
+   leaves most of the field lit at any instant, which reads as a haze rather
+   than as twinkling. */
+@keyframes px-twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+
+    15% {
+        opacity: var(--px-peak);
+        transform: scale(1);
+    }
+
+    35%, 100% {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+}
+
+/* Reduced motion keeps the dusting, drops the blinking. */
+@media (prefers-reduced-motion: reduce) {
+    .px-field i {
+        animation: none;
+        transform: none;
+        opacity: calc(var(--px-peak) * 0.55);
+    }
 }
 
 /* keep content above flowers */

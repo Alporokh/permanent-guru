@@ -193,3 +193,53 @@ document.addEventListener('click', (e) => {
     cookieBanner.style.display = '';
     cookieBanner.classList.remove('cookie-hidden');
 });
+
+// Twinkling pixel dust over the background flowers. Built here rather than in
+// markup so one change reaches all 21 pages, and so the pages stay free of
+// four dozen decorative empty elements. .px-field's mask does the real work:
+// it clips every pixel to the motif, so the dust describes the flower.
+function seedFlowerPixels() {
+    const flowers = document.querySelectorAll('.bg-flower');
+    if (!flowers.length) return;
+
+    // Seeded, so the scatter is identical on every load and every page. A live
+    // Math.random() layout occasionally clumps, and an unlucky one would ship
+    // with nobody able to reproduce it.
+    let seed = 0x9E3779B9;
+    const rand = () => {
+        seed = (seed + 0x6D2B79F5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+
+    flowers.forEach(flower => {
+        const field = document.createElement('div');
+        field.className = 'px-field';
+
+        for (let i = 0; i < 64; i++) {
+            // Polar placement keeps the dust out of the corners of the square
+            // box, where no petal reaches and the mask would eat it anyway.
+            const angle = rand() * Math.PI * 2;
+            const radius = Math.sqrt(rand()) * 46;
+            const size = 2 + Math.round(rand() * 2);
+            const px = document.createElement('i');
+
+            px.style.left = (50 + Math.cos(angle) * radius).toFixed(2) + '%';
+            px.style.top = (50 + Math.sin(angle) * radius).toFixed(2) + '%';
+            px.style.width = size + 'px';
+            px.style.height = size + 'px';
+            px.style.setProperty('--px-peak', (0.25 + rand() * 0.30).toFixed(3));
+            px.style.setProperty('--px-dur', (2.6 + rand() * 3.8).toFixed(2) + 's');
+            // A negative delay starts each pixel part-way through its cycle, so
+            // they never blink in unison on the first pass.
+            px.style.setProperty('--px-delay', '-' + (rand() * 10).toFixed(2) + 's');
+
+            field.appendChild(px);
+        }
+
+        flower.appendChild(field);
+    });
+}
+
+seedFlowerPixels();

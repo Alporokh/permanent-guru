@@ -327,3 +327,88 @@ function snapshotTrail() {
 }
 
 snapshotTrail();
+
+// Portfolio carousel. JS only decides which photo is active and how far each
+// other one sits from it; the look is entirely in style.css, driven by two
+// custom properties per item.
+//
+// Distance is measured around the ring, not along the list, so the strip has
+// no ends - photo 1 sits next to photo 13 and the arrows never dead-end.
+function coverflow() {
+    const NEIGHBOURS = 3; // how many are drawn either side of the active one
+
+    document.querySelectorAll('[data-coverflow]').forEach(root => {
+        const items = Array.from(root.querySelectorAll('.cf-item'));
+        const count = items.length;
+        if (!count) return;
+
+        let active = Math.floor(count / 2);
+
+        function layout() {
+            items.forEach((item, index) => {
+                let offset = index - active;
+                if (offset > count / 2) offset -= count;
+                if (offset < -count / 2) offset += count;
+
+                const distance = Math.abs(offset);
+                const far = distance > NEIGHBOURS;
+
+                item.style.setProperty('--o', offset);
+                item.style.setProperty('--abs', Math.min(distance, NEIGHBOURS + 1));
+                item.toggleAttribute('data-far', far);
+                item.toggleAttribute('data-active', offset === 0);
+                // Only the photo in front is worth announcing.
+                item.setAttribute('aria-hidden', offset === 0 ? 'false' : 'true');
+            });
+        }
+
+        function go(to) {
+            active = ((to % count) + count) % count;
+            layout();
+        }
+
+        root.querySelector('.cf-prev').addEventListener('click', () => go(active - 1));
+        root.querySelector('.cf-next').addEventListener('click', () => go(active + 1));
+        items.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                if (index !== active) go(index);
+            });
+        });
+
+        // Swipe, and click-drag with a mouse. Horizontal only - the vertical
+        // axis stays with the page, which touch-action: pan-y enforces.
+        let startX = null;
+        let startY = null;
+
+        root.addEventListener('pointerdown', event => {
+            startX = event.clientX;
+            startY = event.clientY;
+        });
+
+        root.addEventListener('pointerup', event => {
+            if (startX === null) return;
+            const dx = event.clientX - startX;
+            const dy = event.clientY - startY;
+            startX = null;
+            if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
+            go(active + (dx < 0 ? 1 : -1));
+        });
+
+        root.addEventListener('pointercancel', () => { startX = null; });
+
+        root.tabIndex = 0;
+        root.addEventListener('keydown', event => {
+            if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                go(active - 1);
+            } else if (event.key === 'ArrowRight') {
+                event.preventDefault();
+                go(active + 1);
+            }
+        });
+
+        layout();
+    });
+}
+
+coverflow();

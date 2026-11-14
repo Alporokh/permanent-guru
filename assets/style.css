@@ -2472,3 +2472,147 @@ footer .brand-block p a {
         display: none;
     }
 }
+
+/* -------- Portfolio carousel -------- */
+/* A coverflow: the active photo stands square to the viewer, its neighbours
+   turn away and recede. Every item is positioned from two custom properties
+   that main.js writes - --o, the signed distance from the active photo, and
+   --abs, the same distance unsigned - so the whole arrangement is one rule
+   rather than a class per position. */
+.coverflow {
+    position: relative;
+    margin-top: 48px;
+    height: clamp(320px, 38vw, 520px);
+    background: var(--ink);
+    border-radius: 2px;
+    overflow: hidden;
+    perspective: 1400px;
+    /* vertical scrolling still belongs to the page; we only take horizontal */
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* preserve-3d here is what lets the perspective on .coverflow reach the
+   items: perspective only applies to a direct child, and the items sit one
+   level deeper, inside this list. Without it they lie flat in a row. */
+.cf-track {
+    position: absolute;
+    inset: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transform-style: preserve-3d;
+}
+
+.cf-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: clamp(146px, 19vw, 290px);
+    margin: 0;
+    cursor: pointer;
+    transform:
+        translate(-50%, -50%)
+        translateX(calc(var(--o, 0) * 64%))
+        translateZ(calc(var(--abs, 0) * -130px))
+        rotateY(calc(var(--o, 0) * -30deg));
+    filter: brightness(calc(1 - 0.2 * var(--abs, 0)));
+    z-index: calc(20 - var(--abs, 0));
+    transition:
+        transform 540ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 540ms ease,
+        opacity 300ms ease;
+}
+
+.cf-item[data-active] {
+    cursor: default;
+}
+
+/* Anything past the third neighbour is dropped rather than drawn far away -
+   it would only pile up at the vanishing point. */
+.cf-item[data-far] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cf-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px -22px rgba(0, 0, 0, 0.8);
+}
+
+.cf-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 30;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.cf-nav:hover,
+.cf-nav:focus-visible {
+    background: rgba(0, 0, 0, 0.55);
+    border-color: rgba(255, 255, 255, 0.75);
+}
+
+.cf-nav::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #FFFFFF;
+    border-bottom: 2px solid #FFFFFF;
+}
+
+.cf-prev {
+    left: 16px;
+}
+
+.cf-prev::before {
+    transform: rotate(135deg);
+    margin-left: 4px;
+}
+
+.cf-next {
+    right: 16px;
+}
+
+.cf-next::before {
+    transform: rotate(-45deg);
+    margin-right: 4px;
+}
+
+@media (max-width: 700px) {
+    .cf-nav {
+        width: 38px;
+        height: 38px;
+        margin-top: -19px;
+    }
+
+    .cf-prev {
+        left: 8px;
+    }
+
+    .cf-next {
+        right: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cf-item {
+        transition: none;
+    }
+}

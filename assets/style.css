@@ -2668,3 +2668,115 @@ footer .brand-block p a {
         transition: none;
     }
 }
+
+/* -------- Certificates: first row only -------- */
+/* JS adds is-collapsed and builds the button, so with JS off every
+   certificate is still on the page rather than hidden behind a dead
+   control. The cut-off follows the grid: four across, two on narrow. */
+.cert-grid.is-collapsed .cert-card:nth-child(n + 5) {
+    display: none;
+}
+
+@media (max-width: 980px) {
+    .cert-grid.is-collapsed .cert-card:nth-child(n + 3) {
+        display: none;
+    }
+}
+
+.cert-more {
+    margin-top: 28px;
+    text-align: center;
+}
+
+/* -------- Mobile action bar -------- */
+/* The three things someone on a phone actually wants on a price or
+   treatment page, kept within thumb reach while they scroll. Hidden on
+   desktop, where the nav and the floating button already cover it. */
+.action-bar {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .action-bar {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 49;
+        display: flex;
+        gap: 8px;
+        padding: 7px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.94);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--line);
+        box-shadow: 0 12px 30px -10px rgba(42, 23, 31, 0.45);
+    }
+
+    .ab-item {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 46px;
+        border-radius: 999px;
+        font-family: var(--font-body);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .ab-book {
+        background: var(--magenta);
+        color: #FFFFFF;
+    }
+
+    .ab-wa,
+    .ab-call {
+        color: var(--ink);
+        border: 1px solid var(--line);
+    }
+
+    /* the call button is the icon alone - the label would not earn its width */
+    .ab-call {
+        flex: 0 0 46px;
+    }
+
+    /* the floating button would be a second WhatsApp on the same screen */
+    .has-action-bar .wa-float {
+        display: none;
+    }
+
+    /* keep the bar off the last of the page content */
+    body.has-action-bar {
+        padding-bottom: 78px;
+    }
+
+    /* the cookie banner is fixed to the bottom as well, so lift the bar
+       over it while it is up - same approach as the floating button */
+    #cookie-banner:not(.cookie-hidden) ~ .action-bar {
+        bottom: 140px;
+    }
+}
+
+@media (max-width: 700px) {
+    #cookie-banner:not(.cookie-hidden) ~ .action-bar {
+        bottom: 178px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cookie-banner:not(.cookie-hidden) ~ .action-bar {
+        bottom: 248px;
+    }
+
+    .ab-item {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+    }
+}

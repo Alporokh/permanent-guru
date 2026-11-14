@@ -86,6 +86,7 @@ document.addEventListener('click', (e) => {
         (link.closest('footer') && 'footer') ||
         (link.closest('.mobile-nav') && 'mobile_nav') ||
         (link.closest('.site-nav') && 'nav') ||
+        (link.closest('.action-bar') && 'action_bar') ||
         (link.closest('.cta-strip') && 'cta_strip') ||
         (link.closest('.hero, .page-hero') && 'hero') ||
         (link.closest('.contact-grid') && 'contact_card') ||
@@ -618,6 +619,47 @@ function confettiCursor() {
             start();
         });
 
+        // A finger has no hover, so scrolling spills the paper too: a little
+        // falls from the top of the section as it travels up the screen. Same
+        // discipline as the photo trail - gated on being visible, one rect
+        // read per frame, passive listener, and nothing at all when still.
+        let onScreen = false;
+        let lastScrollY = window.scrollY;
+        let scrolled = 0;
+        let queued = false;
+
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(entries => {
+                onScreen = entries.some(entry => entry.isIntersecting);
+            }).observe(host);
+        } else {
+            onScreen = true;
+        }
+
+        window.addEventListener('scroll', () => {
+            const dy = Math.abs(window.scrollY - lastScrollY);
+            lastScrollY = window.scrollY;
+            if (!onScreen || queued) return;
+
+            scrolled += dy;
+            if (scrolled < 90) return;
+            scrolled = 0;
+
+            queued = true;
+            requestAnimationFrame(() => {
+                queued = false;
+                const box = host.getBoundingClientRect();
+                if (!box.height) return;
+
+                // wander across the width as the section passes through
+                const through = 1 - (box.top + box.height) / (window.innerHeight + box.height);
+                const across = 0.5 + 0.38 * Math.sin(through * Math.PI * 3.1);
+                add(box.width * across, box.height * 0.08, 1.5);
+                add(box.width * across, box.height * 0.08, 1.5);
+                start();
+            });
+        }, { passive: true });
+
         window.addEventListener('resize', resize, { passive: true });
         resize();
     });
@@ -625,3 +667,39 @@ function confettiCursor() {
 
 glassCursor();
 confettiCursor();
+
+// Certificates collapse to their first row. The class and the button are both
+// added here, so with JS off the whole grid is simply on the page - no button
+// that does nothing, and nothing hidden behind one.
+function certificateRows() {
+    document.querySelectorAll('.cert-grid').forEach(grid => {
+        const cards = grid.querySelectorAll('.cert-card');
+        // nothing to fold away if the first row is all there is
+        if (cards.length <= 4) return;
+
+        grid.classList.add('is-collapsed');
+
+        const wrap = document.createElement('div');
+        wrap.className = 'cert-more';
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn btn-ghost';
+        button.setAttribute('aria-expanded', 'false');
+        button.textContent = 'Poka\u017c wszystkie certyfikaty';
+
+        button.addEventListener('click', () => {
+            const open = !grid.classList.contains('is-collapsed');
+            grid.classList.toggle('is-collapsed', open);
+            button.setAttribute('aria-expanded', open ? 'false' : 'true');
+            button.textContent = open
+                ? 'Poka\u017c wszystkie certyfikaty'
+                : 'Poka\u017c mniej';
+        });
+
+        wrap.appendChild(button);
+        grid.after(wrap);
+    });
+}
+
+certificateRows();
